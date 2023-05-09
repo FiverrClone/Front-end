@@ -1,0 +1,30 @@
+.logo {
+    text-align: center;
+}
+
+.content {
+    padding-top: 10px;
+}
+
+mat-form-field {
+    width: 100%;
+}
+
+p{
+    text-align: center;
+}
+
+mat-chip-listbox{
+    padding: 40px;
+}
+
+mat-chip-option{
+    padding-bottom: 10px;
+    width: 60%;
+    height: 40px;
+}
+
+.action {
+    padding: 0px 25px 20px;
+    justify-content: space-between;
+}
