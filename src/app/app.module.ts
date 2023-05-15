@@ -23,8 +23,13 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { BecomeSellerComponent } from './components/become-seller/become-seller.component';
 import {MatChipsModule} from '@angular/material/chips';
-
-
+import { SearchComponent } from './components/search/search.component';
+import { GigComponent } from './components/gig/gig.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatMenuModule} from '@angular/material/menu'
+import {MatSelectModule} from '@angular/material/select';
+import { FirstPageComponent } from './components/first-page/first-page.component'
+import { GigService } from './services/gig.service';
 
 
 @NgModule({
@@ -34,7 +39,10 @@ import {MatChipsModule} from '@angular/material/chips';
     LoginComponent,
     NotFoundComponent,
     ForgotPasswordComponent,
-    BecomeSellerComponent
+    BecomeSellerComponent,
+    SearchComponent,
+    GigComponent,
+    FirstPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,9 +61,12 @@ import {MatChipsModule} from '@angular/material/chips';
     HttpClientModule,
     MatSnackBarModule,
     MatChipsModule,
+    MatCardModule,
+    MatMenuModule,
+    MatSelectModule,
 
   ],
-  providers: [],
+  providers: [GigService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

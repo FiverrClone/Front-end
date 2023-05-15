@@ -1,0 +1,37 @@
+<div class="slider">
+  <div>
+    <div class="leftArrow">
+      <form [formGroup]="SearchForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Search</mat-label>
+          <input matInput placeholder="Search" formControlName="keyword">
+        </mat-form-field>
+        <button><mat-icon>search</mat-icon></button>
+      </form>
+    </div>
+  </div>
+  <div
+    class="slide"
+    [ngStyle]="{ 'background-image': getCurrentSlideUrl() }"
+  ></div>
+  <div class="dotsContainer">
+    <div
+      *ngFor="let slide of slides; let slideIndex = index"
+      class="dot"
+      (click)="goToSlide(slideIndex)"
+    >
+      ●
+    </div>
+  </div>
+</div>
+
+<!--
+  <div class="row">
+    <h5 class="text-white">Categories</h5>
+    <div class="rowposter mt-3 p-2">
+      <ng-container *ngFor="let g of gigs">
+        <img src="{{ g.img }}" class="rowimg largeposter" alt="..."
+          [routerLink]="['/gig',g.id]">
+      </ng-container>
+    </div>
+  </div>-->

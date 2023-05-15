@@ -11,3 +11,8 @@
 .btn {
     margin-right: 10px;
 }
+
+mat-card{
+    width: 400px;
+    margin: 200px auto auto;
+}

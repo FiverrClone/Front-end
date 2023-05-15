@@ -39,8 +39,8 @@ export class LoginComponent {
       next: (AppUser) => {
         this._login.authenticateUser(AppUser).subscribe({
           next: (data: boolean) => {
-            this._router.navigateByUrl("/become-seller");
             this._dialogRef.close();
+            this._router.navigateByUrl("./home");
           }
         });
       },
