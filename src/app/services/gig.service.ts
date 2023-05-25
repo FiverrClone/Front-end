@@ -6,8 +6,8 @@ import { Observable, from, of, throwError } from 'rxjs';
   providedIn: 'root'
 })
 export class GigService {
-
   private gigs!: Array<Gig>;
+  
   constructor() {
     this.gigs = [
       { id: '1', name: "HP", price: 6000, description: "ggggggggggggggg", img: "https://cdn.pixabay.com/photo/2021/01/11/06/01/freelance-5907232_960_720.png", sellerName: "youness", sellerId: "kb1" },
@@ -22,14 +22,13 @@ export class GigService {
   }
 
   public getGigs(): Observable<Array<Gig>> {
-    /////pour tester
-    let rnd = Math.random();
-    if (rnd < 0.2) return throwError(() => new Error("Internet connexion error"));
-    else
-      //////fin de test
       return of(this.gigs);
   }
 
+  public searchGigs(gigName: string): Observable<Gig[]> {
+    let result = this.gigs.filter(g => g.description.includes(gigName));
+    return of(this.gigs);
+  }
 
 
 

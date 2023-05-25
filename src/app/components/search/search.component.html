@@ -1,1 +1,24 @@
-<p>search works!</p>
+<div class="contain mt-5 p-5">
+    <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
+      <div fxLayout="row">
+        <mat-form-field fxFlex="80" class="mr-3">
+          <input matInput type="text" formControlName="gigName" placeholder="Search what you looking for Here...">
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit">Search</button>
+      </div>
+    </form>
+  
+    <div fxLayout="row wrap" fxLayoutGap="16px" class="mt-5">
+      <div fxFlex.gt-sm="25%" fxFlex.lt-md="33%" fxFlex.gt-xs="50%" *ngFor="let g of gigs">
+        <mat-card>
+          <a [routerLink]="['/gig', g.id]">
+            <img mat-card-image [src]="'https://image.tmdb.org/t/p/original/' + g.img">
+          </a>
+          <mat-card-content>
+            <h2 mat-card-title>{{ g.name }}</h2>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  

@@ -4,6 +4,8 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Gig } from 'src/app/model/gig.model';
 import { Category } from 'src/app/model/category.model';
+import { SlideInterface } from 'src/app/model/slide.model';
+import { interval, Observable, startWith, Subject, switchMap, timer,} from 'rxjs';
 
 @Component({
   selector: 'app-first-page',
@@ -13,22 +15,21 @@ import { Category } from 'src/app/model/category.model';
 
 
 export class FirstPageComponent implements OnInit {
+  @Input() slides: SlideInterface[] = [
+    { url: '../../assets/image-1.jpeg', title: 'beach' },
+    { url: '../../assets/image-2.jpeg', title: 'boat' },
+    { url: '../../assets/image-3.jpeg', title: 'forest' },
+    { url: '../../assets/image-4.jpeg', title: 'city' },
+    { url: '../../assets/image-5.jpeg', title: 'italy' },];
+  currentIndex: number = 0;
+  timeoutId?: number;
+
   SearchForm: FormGroup;
   searchInput = new FormControl();
   searchFormGroup: any;
   gigs!: Array<Gig>;
   categories!: Array<Category>;
   errorMSG!: string;
-
-  slides=[
-    {url: './asset/image-1.jpeg', title:'beach'},
-    {url: './asset/image-2.jpeg', title:'boat'},
-    {url: './asset/image-3.jpeg', title:'forest'},
-    {url: './asset/image-4.jpeg', title:'city'},
-    {url: './asset/image-5.jpeg', title:'italy'},
-  ];
-  currentIndex: number = 0;
-  timeoutId?: number;
 
   constructor(
     private _gigService: GigService,
@@ -51,24 +52,18 @@ export class FirstPageComponent implements OnInit {
 
     this.resetTimer();
   }
+
   ngOnDestroy() {
     window.clearTimeout(this.timeoutId);
   }
+
   resetTimer() {
     if (this.timeoutId) {
       window.clearTimeout(this.timeoutId);
     }
-    this.timeoutId = window.setTimeout(() => this.goToNext(), 3000);
+    this.timeoutId = window.setTimeout(() => this.goToNext(), 4000);
   }
-  goToPrevious(): void {
-    const isFirstSlide = this.currentIndex === 0;
-    const newIndex = isFirstSlide
-      ? this.slides.length - 1
-      : this.currentIndex - 1;
 
-    this.resetTimer();
-    this.currentIndex = newIndex;
-  }
   goToNext(): void {
     const isLastSlide = this.currentIndex === this.slides.length - 1;
     const newIndex = isLastSlide ? 0 : this.currentIndex + 1;
@@ -76,10 +71,7 @@ export class FirstPageComponent implements OnInit {
     this.resetTimer();
     this.currentIndex = newIndex;
   }
-  goToSlide(slideIndex: number): void {
-    this.resetTimer();
-    this.currentIndex = slideIndex;
-  }
+
   getCurrentSlideUrl() {
     return `url('${this.slides[this.currentIndex].url}')`;
   }
@@ -93,7 +85,7 @@ export class FirstPageComponent implements OnInit {
         this.errorMSG = err;
       }
     });
-  }
+  } 
 
   getCategories() {
     this._categoryService.getCategories().subscribe({

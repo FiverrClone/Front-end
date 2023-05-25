@@ -30,7 +30,15 @@ import {MatMenuModule} from '@angular/material/menu'
 import {MatSelectModule} from '@angular/material/select';
 import { FirstPageComponent } from './components/first-page/first-page.component'
 import { GigService } from './services/gig.service';
-
+import { HomeComponent } from './components/home/home.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { HeaderComponent } from './components/header/header.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatListModule} from '@angular/material/list';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +51,11 @@ import { GigService } from './services/gig.service';
     SearchComponent,
     GigComponent,
     FirstPageComponent,
+    HomeComponent,
+    HeaderComponent,
+    SidenavComponent,
+    ProfileComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +77,10 @@ import { GigService } from './services/gig.service';
     MatCardModule,
     MatMenuModule,
     MatSelectModule,
+    MatSidenavModule,
+    MatDividerModule,
+    FlexLayoutModule,
+    MatListModule,
 
   ],
   providers: [GigService],

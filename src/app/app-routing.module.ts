@@ -7,15 +7,21 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SearchComponent } from './components/search/search.component';
 import { GigComponent } from './components/gig/gig.component';
+import { HomeComponent } from './components/home/home.component';
+import { FirstPageComponent } from './components/first-page/first-page.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
-const routes: Routes = [
+const routes: Routes = [ 
+  {path: 'firstpage', component: FirstPageComponent},
+  {path: 'home', component: HomeComponent},
+  {path: 'profile', component: ProfileComponent},
   {path: 'signe-up', component: SigneUpComponent},
   {path: 'login', component: LoginComponent},
   {path: 'become-seller', component: BecomeSellerComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'search', component: SearchComponent},
   {path: 'gig/:id', component: GigComponent},
-  {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: '', redirectTo: '', pathMatch: 'full'},
+  {path: '', redirectTo: 'firstpage', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent},
 
 ];
