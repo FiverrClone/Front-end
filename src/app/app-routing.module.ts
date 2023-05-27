@@ -10,6 +10,7 @@ import { GigComponent } from './components/gig/gig.component';
 import { HomeComponent } from './components/home/home.component';
 import { FirstPageComponent } from './components/first-page/first-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { DetailGigComponent } from './components/detail-gig/detail-gig.component';
 
 const routes: Routes = [ 
   {path: 'firstpage', component: FirstPageComponent},
@@ -20,7 +21,7 @@ const routes: Routes = [
   {path: 'become-seller', component: BecomeSellerComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'search', component: SearchComponent},
-  {path: 'gig/:id', component: GigComponent},
+  {path: 'gig/:id', component: DetailGigComponent},
   {path: '', redirectTo: 'firstpage', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent},
 

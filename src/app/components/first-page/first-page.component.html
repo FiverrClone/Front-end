@@ -7,17 +7,13 @@
       </mat-form-field>
       <button type="submit"><mat-icon>search</mat-icon></button>
     </form>-->
+    <h1>Vibrant community of creative minds and skilled professionals</h1>
   </div>
   <div class="slide" [ngStyle]="{ 'background-image': getCurrentSlideUrl() }"></div>
 </div>
 
-<!--
-  <div class="row">
-    <h5 class="text-white">Categories</h5>
-    <div class="rowposter mt-3 p-2">
-      <ng-container *ngFor="let g of gigs">
-        <img src="{{ g.img }}" class="rowimg largeposter" alt="..."
-          [routerLink]="['/gig',g.id]">
-      </ng-container>
-    </div>
-  </div>-->
+<div class="profils">
+  <div *ngFor="let profil of profils" class="profil">
+    <app-card-freelancer [profils]="profil"></app-card-freelancer>
+  </div>
+</div>

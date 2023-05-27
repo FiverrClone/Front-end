@@ -84,7 +84,7 @@ export class FirstPageComponent implements OnInit {
       error: (err) => {
         this.errorMSG = err;
       }
-    });
+    }); 
   } 
 
   getCategories() {
@@ -97,6 +97,27 @@ export class FirstPageComponent implements OnInit {
       }
     });
   }
+
+  profils = [
+    {
+      img: "../../../assets/user.jpg.jpeg",
+      lastName: "MOHAMMED DAAOUAN",
+      info: "technical skills, design principles, and problem-solving abilities to build engaging web applications that effectively meet the needs of both users and businesses",
+      company: "GOOGLE"
+    },
+    {
+      img: "../../../assets/user.jpg.jpeg",
+      lastName: "MOHAMMED DAAOUAN",
+      info: "technical skills, design principles, and problem-solving abilities to build engaging web applications that effectively meet the needs of both users and businesses",
+      company: "GOOGLE"
+    },
+    {
+      img: "../../../assets/user.jpg.jpeg",
+      lastName: "MOHAMMED DAAOUAN",
+      info: "technical skills, design principles, and problem-solving abilities to build engaging web applications that effectively meet the needs of both users and businesses",
+      company: "GOOGLE"
+    },
+  ]
 
 
 

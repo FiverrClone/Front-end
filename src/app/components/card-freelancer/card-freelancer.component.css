@@ -1,0 +1,48 @@
+.freelancer-card{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 4px 4px gray;
+    padding: 70px 30px 35px;
+    margin-top: 50px;
+    border-radius: 20px;
+    background-color: rgb(43, 8, 47);
+    color: white;
+    position: relative;
+}
+
+.profile{
+    position: absolute;
+    top: -15%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+img{
+    width: 100px;
+    height:100px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.description{
+    color: grey;
+    width: fit-content;
+    margin: auto;
+}
+
+.job{
+    color: grey;
+    width: fit-content;
+    margin: auto;
+}
+
+.rationg-section{
+    text-align: center;
+}
+
+.card-body p{
+    width: fit-content;
+    text-align: center;
+    margin: auto;
+    margin-top:7px;
+}

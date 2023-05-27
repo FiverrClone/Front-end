@@ -1,0 +1,18 @@
+<div class="freelancer-card">
+    <div class="profile">
+        <img src="{{profils.img}}" alt="freelancer image">
+    </div>
+    <!--<div class="rationg-section">
+        <button mat-icon-button [color]="color" *ngFor="let ratingId of ratingArr;index as i" [id]="'star_'+i"
+            (click)="onClick(i+1)" matTooltipPosition="above">
+            <mat-icon>
+                {{showIcon(i)}}
+            </mat-icon>
+        </button>
+    </div>-->
+    <div class="card-body">
+        <p class="description">{{profils.info}}</p>
+        <p>{{profils.lastName}}</p>
+        <p class="job">{{profils.company}}</p>
+    </div>
+</div>

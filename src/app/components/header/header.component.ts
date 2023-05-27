@@ -45,13 +45,14 @@ export class HeaderComponent {
     } else {
       this.navbg = {}
       this.navbg2 = {}
-    }
+    } 
   }
 
-  @Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
+
+  /*@Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
   toggleSidebar() {
     this.toggleSidebarForMe.emit();
-  }
+  }*/
 
 
 }

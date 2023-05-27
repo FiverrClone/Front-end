@@ -39,6 +39,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import { FooterComponent } from './components/footer/footer.component';
+import { DetailGigComponent } from './components/detail-gig/detail-gig.component';
+import { CardFreelancerComponent } from './components/card-freelancer/card-freelancer.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +58,8 @@ import { FooterComponent } from './components/footer/footer.component';
     SidenavComponent,
     ProfileComponent,
     FooterComponent,
+    DetailGigComponent,
+    CardFreelancerComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,7 +85,6 @@ import { FooterComponent } from './components/footer/footer.component';
     MatDividerModule,
     FlexLayoutModule,
     MatListModule,
-
   ],
   providers: [GigService],
   bootstrap: [AppComponent]

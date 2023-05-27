@@ -10,8 +10,8 @@ export class AppComponent {
 
   title = 'FiverrClone';
 
-  sideBarOpen = true;
+ /* sideBarOpen = true;
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
-  }
+  }*/
 }

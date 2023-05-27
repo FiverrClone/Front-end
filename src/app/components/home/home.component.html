@@ -1,35 +1,7 @@
-<div class="container-fluid page">
-    <div class="d-flex page__box p-3 mt-2">Home</div>
-    <div class="page__content shadow p-3 position-relative">
-        <div class="page__content-data position-absolute text-center">
-            <div class="w-3/12 rounded-xl shadow-xl">
-                <img class="w-full rounded-t-xl h-36 object-cover"
-                    src="https://source.unsplash.com/odxB5oIG_iA/400x250" />
-                <div class="p-6">
-                    <div class="flex flex-row">
-                        <div class="uppercase text-xs text-yellow-700 bg-yellow-200 px-2 py-1 rounded-xl">
-                            Angular
-                        </div>
-                    </div>
-                    <h2 class="text-2xl mt-2 font-bold">Front end web app</h2>
-                    <p class="mt-2 text-gray-600">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta libero tempora, iste molestiae
-                        blanditiis
-                        natus sapiente enim ut ratione labore nesciunt voluptatibus cumque laudantium odit illo!
-                        Molestias eveniet
-                        nobis ipsum.
-                    </p>
-                    <div class="flex flex-row mt-4 items-center">
-                        <img class="rounded-full mr-2" src="https://source.unsplash.com/7YVZYZeITc8/30x30" />
-                        <div class="font-bold mr-2">Daaouan Mohammed</div>
-                        <div class="text-gray-400">On May 9, 2023</div>
-                        <span class="flex-auto"></span>
-                        <div class="uppercase text-xs text-green-700 bg-green-200 px-2 py-1 rounded-xl">
-                            299$
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="page__content shadow p-3 position-relative">
+    <div class=" grid grid-cols-3 p-8 gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <app-gig class="transition-transform transform hover:scale-105 cursor-pointer duration-300 ease-in-out"
+            *ngFor="let gig of gigs" [gigs]="gig">
+        </app-gig>
     </div>
 </div>

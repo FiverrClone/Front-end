@@ -11,14 +11,14 @@ export class CategoryService {
 
   constructor() {
     this.categories = [
-      { id: 1, name: "frot end" },
-      { id: 2, name: "back end" },
-      { id: 3, name: "mobile" },
+      { id: 1, name: "frot end", img:"../../assets/image-1.jpeg"},
+      { id: 2, name: "back end", img:"../../assets/image-1.jpeg"},
+      { id: 3, name: "mobile", img:"../../assets/image-1.jpeg"},
     ];
     for (let i = 0; i < 10; i++) {
-      this.categories.push({ id: 1, name: "frot end" });
-      this.categories.push({ id: 1, name: "back end" });
-      this.categories.push({ id: 1, name: "not mobile" });
+      this.categories.push({ id: 1, name: "frot end" , img:"../../assets/image-1.jpeg"});
+      this.categories.push({ id: 1, name: "back end" , img:"../../assets/image-1.jpeg"});
+      this.categories.push({ id: 1, name: "not mobile" , img:"../../assets/image-1.jpeg"});
     }
   }
 

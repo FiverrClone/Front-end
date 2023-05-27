@@ -1,76 +1,69 @@
-<!--<p class="bar">
-    <mat-toolbar>
-      <mat-toolbar-row [ngStyle]="navbg">
-        <a routerLink="/">LOGO</a>
-  
-        <span class="example-spacer"></span>
-  
-        <nav class="button">
-          <button mat-raised-button (click)="openLoginForm()">Login</button>
-          <button mat-raised-button (click)="openSigneUpForm()">Sign Up</button>
-        </nav>
-      </mat-toolbar-row>
-  
-      <mat-toolbar-row [ngStyle]="navbg2">
-        <button mat-button [matMenuTriggerFor]="front_end">front end</button>
-        <mat-menu #front_end>
-          <button mat-menu-item>angular</button>
-          <button mat-menu-item>react</button>
-          <button mat-menu-item>vueJs</button>
-        </mat-menu>
-  
-        <button mat-button [matMenuTriggerFor]="back_end">back end</button>
-        <mat-menu #back_end>
-          <button mat-menu-item>laravel</button>
-          <button mat-menu-item>symfony</button>
-        </mat-menu>
-  
-        <button mat-button [matMenuTriggerFor]="design">design</button>
-        <mat-menu #design>
-          <button mat-menu-item [matMenuTriggerFor]="design_app">design app</button>
-          <mat-menu #design_app>
-            <button mat-menu-item>cat 1</button>
-            <button mat-menu-item>cat 2</button>
-            <button mat-menu-item>cat 2</button>
-          </mat-menu>
-          <button mat-menu-item>design web</button>
-          <button mat-menu-item [matMenuTriggerFor]="games">games</button>
-          <mat-menu #games>
-            <button mat-menu-item>type 1</button>
-            <button mat-menu-item>type 2</button>
-            <button mat-menu-item>type 2</button>
-          </mat-menu>
-          
-          <button mat-menu-item>logo</button>
-        </mat-menu>
-  
-        <span class="example-spacer"></span>
-        <a routerLink="search">Search</a>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </p>
--->
-<mat-toolbar>
-  <mat-toolbar-row class="justify-content-between">
-    <button mat-icon-button (click)="toggleSidebar()">
-      <mat-icon>menu</mat-icon>
-    </button>
-    <div class="row mr-2 ml-auto">
-      <ul class="row m-0 align-items-center">
-        <li>
-          <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
-            <img src="../../../assets/user.jpg.jpeg" alt="" class="user-image mr-1 p-2" />
-            MOHAMMED
-            <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu">
-            <button mat-menu-item>
-              <mat-icon>exit_to_app</mat-icon>
-              Logout
+<p class="bar">
+  <mat-toolbar>
+    <mat-toolbar-row class="justify-content-between" [ngStyle]="navbg">
+      <a routerLink="/">LOGO</a>
+
+      <span class="example-spacer"></span>
+   <!--</mat-toolbar-row> <button mat-icon-button (click)="toggleSidebar()">
+        <mat-icon>menu</mat-icon>
+      </button>-->
+
+      <nav class="button">
+        <button mat-raised-button (click)="openLoginForm()">Login</button>
+        <button mat-raised-button (click)="openSigneUpForm()">Sign Up</button>
+      </nav>
+      <div class="row mr-2 ml-auto">
+        <ul class="row m-0 align-items-center">
+          <li>
+            <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
+              <img src="../../../assets/user.jpg.jpeg" alt="" class="user-image mr-1 p-2" />
             </button>
-          </mat-menu>
-        </li>
-      </ul>
-    </div>
-  </mat-toolbar-row>
-</mat-toolbar>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>exit_to_app</mat-icon>
+                Logout
+              </button>
+            </mat-menu>
+          </li>
+        </ul> 
+      </div>
+    </mat-toolbar-row>
+
+    <mat-toolbar-row [ngStyle]="navbg2">
+      <button mat-button [matMenuTriggerFor]="front_end">front end</button>
+      <mat-menu #front_end>
+        <button mat-menu-item>angular</button>
+        <button mat-menu-item>react</button>
+        <button mat-menu-item>vueJs</button>
+      </mat-menu>
+
+      <button mat-button [matMenuTriggerFor]="back_end">back end</button>
+      <mat-menu #back_end>
+        <button mat-menu-item>laravel</button>
+        <button mat-menu-item>symfony</button>
+      </mat-menu>
+
+      <button mat-button [matMenuTriggerFor]="design">design</button>
+      <mat-menu #design>
+        <button mat-menu-item [matMenuTriggerFor]="design_app">design app</button>
+        <mat-menu #design_app>
+          <button mat-menu-item>cat 1</button>
+          <button mat-menu-item>cat 2</button>
+          <button mat-menu-item>cat 2</button>
+        </mat-menu>
+        <button mat-menu-item>design web</button>
+        <button mat-menu-item [matMenuTriggerFor]="games">games</button>
+        <mat-menu #games>
+          <button mat-menu-item>type 1</button>
+          <button mat-menu-item>type 2</button>
+          <button mat-menu-item>type 2</button>
+        </mat-menu>
+
+        <button mat-menu-item>logo</button>
+      </mat-menu>
+
+      <span class="example-spacer"></span>
+      <a routerLink="search">Search</a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
