@@ -1,20 +1,20 @@
 <button>
 <div class="rounded-xl shadow-xl">
-    <img class="w-full rounded-t-xl h-36 object-cover" [src]="gigs.img" />
+    <img class="w-full rounded-t-xl h-36 object-cover" [src]="gigs.image" />
     <div class="p-6">
         <div class="flex flex-row">
             <div class="uppercase text-xs text-yellow-700 bg-yellow-200 px-2 py-1 rounded-xl">
                 {{gigs.category}}
             </div>
         </div>
-        <h2 class="text-2xl mt-2 font-bold">{{gigs.name}}</h2>
+        <h2 class="text-2xl mt-2 font-bold">{{gigs.title}}</h2>
         <p class="mt-2 text-gray-600">
            {{gigs.description}}
         </p>
         <div class="flex flex-row mt-4 items-center">
             <img class="rounded-full mr-2" [src]="gigs.sellerImg" />
-            <div class="font-bold mr-2">{{gigs.sellerName}}</div>
-            <div class="text-gray-400">On {{gigs.gigDate}}</div>
+            <div class="font-bold mr-2">{{gigs.username}}</div>
+            <div class="text-gray-400">On {{gigs.createdAt}}</div>
             <span class="flex-auto"></span>
             <div class="uppercase text-xs text-green-700 bg-green-200 px-2 py-1 rounded-xl">
                 {{gigs.price}}$

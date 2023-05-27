@@ -12,7 +12,7 @@ import { BecomeSellerComponent } from '../become-seller/become-seller.component'
   templateUrl: './signe-up.component.html',
   styleUrls: ['./signe-up.component.css']
 })
-export class SigneUpComponent {
+export class SigneUpComponent  {
   SigneUpForm: FormGroup;
   hide = true;
 
@@ -37,8 +37,10 @@ export class SigneUpComponent {
   OnFormSubmit(){
     if(this.SigneUpForm.valid)
     {
-      this._userService.addUser(this.SigneUpForm.value).subscribe({
+      this._userService.register(this.SigneUpForm.value).subscribe({
         next:(val: any)=>{
+          const userResult: any = val.register;
+          console.log(userResult)
           this._dialogRef.close();
         },
         error:(err: any)=>{

@@ -41,6 +41,7 @@ import {MatListModule} from '@angular/material/list';
 import { FooterComponent } from './components/footer/footer.component';
 import { DetailGigComponent } from './components/detail-gig/detail-gig.component';
 import { CardFreelancerComponent } from './components/card-freelancer/card-freelancer.component';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [
@@ -85,6 +86,7 @@ import { CardFreelancerComponent } from './components/card-freelancer/card-freel
     MatDividerModule,
     FlexLayoutModule,
     MatListModule,
+    GraphQLModule,
   ],
   providers: [GigService],
   bootstrap: [AppComponent]

@@ -9,7 +9,7 @@ import { Gig } from 'src/app/model/gig.model';
 })
 export class GigComponent implements OnInit {
   @Input() 
-  gigs!: Gig;
+  gigs!: any;
 
   constructor() { }
   ngOnInit(): void { }
