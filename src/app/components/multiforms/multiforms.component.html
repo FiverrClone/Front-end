@@ -1,0 +1,79 @@
+<form [formGroup]="Empregister" (ngSubmit)="HandleSubmit()">
+    <mat-stepper [linear]="isLinear" #stepper>
+
+        <mat-step [stepControl]="Basicform">
+            <div formGroupName="basic">
+                <ng-template matStepLabel>Fill Basic Details</ng-template>
+                <div class="row">
+                    <mat-form-field appearance="fill">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="First name" formControlName="firstname">
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="Last name" formControlName="lastname">
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email" placeholder="Email" required>
+                    </mat-form-field>
+                </div>
+                <div class="row">
+                    <mat-form-field appearance="fill">
+                        <mat-label>Birthday</mat-label>
+                        <input matInput [matDatepicker]="picker" formControlName="birthday">
+                        <mat-hint>MM/DD/YYYY</mat-hint>
+                        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                    <mat-radio-group aria-label="Select an option" formControlName="gender">
+                        <mat-label><b>Gender</b></mat-label><br>
+                        <mat-radio-button value="male">Male</mat-radio-button>
+                        <mat-radio-button value="female">Female</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+                <div>
+                    <button mat-raised-button color="primary" matStepperNext>Next</button>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="contactform" label="Fill out contact info">
+            <div formGroupName="contact">
+                <div>
+                    <mat-form-field appearance="fill">
+                        <mat-label>User name</mat-label>
+                        <input matInput type="text" formControlName="userName" required>
+                    </mat-form-field>
+                    <mat-form-field appearance="fill">
+                        <mat-label>Password</mat-label>
+                        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" required>
+                        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                            [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button> |
+                    <button mat-raised-button color="primary" matStepperNext>Next</button>
+                </div>
+            </div>
+        </mat-step>
+        <mat-step [stepControl]="addressform" label="Fill out address">
+            <div formGroupName="address">
+                <p>Choose the type of account you want to create:</p>
+                    <mat-chip-listbox aria-label="Fish selection" formControlName="roles">
+                        <mat-chip-option value="CUSTOMER">Simple account</mat-chip-option>
+                        <mat-chip-option value="FREELANCER">Freelancer account</mat-chip-option>
+                    </mat-chip-listbox>
+                <div>
+                    <button mat-raised-button color="primary" matStepperPrevious>Back</button> |
+                    <button mat-raised-button color="accent">Submit</button>
+                </div>
+            </div>
+        </mat-step>
+
+    </mat-stepper>
+</form>

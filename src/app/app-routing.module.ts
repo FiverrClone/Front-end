@@ -11,12 +11,13 @@ import { HomeComponent } from './components/home/home.component';
 import { FirstPageComponent } from './components/first-page/first-page.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { DetailGigComponent } from './components/detail-gig/detail-gig.component';
+import { MultiformsComponent } from './components/multiforms/multiforms.component';
 
 const routes: Routes = [ 
   {path: 'firstpage', component: FirstPageComponent},
   {path: 'home', component: HomeComponent},
   {path: 'profile', component: ProfileComponent},
-  {path: 'signe-up', component: SigneUpComponent},
+  {path: 'multiforms', component: MultiformsComponent},
   {path: 'login', component: LoginComponent},
   {path: 'become-seller', component: BecomeSellerComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},

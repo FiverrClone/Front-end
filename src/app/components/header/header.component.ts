@@ -5,6 +5,7 @@ import { SigneUpComponent } from '../signe-up/signe-up.component';
 import { LoginComponent } from '../login/login.component';
 import { SnackBarService } from '../../services/snack-bar.service';
 import { Observable } from 'rxjs';
+import { MultiformsComponent } from '../multiforms/multiforms.component';
 
 @Component({
   selector: 'app-header',
@@ -20,8 +21,8 @@ export class HeaderComponent {
     private _router: Router
   ) { }
 
-  openSigneUpForm() {
-    this._SigneUp.open(SigneUpComponent, { width: '500px', disableClose: false });
+  openmultiforms() {
+    this._SigneUp.open(MultiformsComponent, { width: '500px', disableClose: false });
   }
 
   openLoginForm() {

@@ -42,6 +42,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { DetailGigComponent } from './components/detail-gig/detail-gig.component';
 import { CardFreelancerComponent } from './components/card-freelancer/card-freelancer.component';
 import { GraphQLModule } from './graphql.module';
+import { MultiformsComponent } from './components/multiforms/multiforms.component';
+import {MatStepperModule} from '@angular/material/stepper';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import { GraphQLModule } from './graphql.module';
     FooterComponent,
     DetailGigComponent,
     CardFreelancerComponent,
+    MultiformsComponent,
   ],
   imports: [
     BrowserModule,
@@ -86,7 +89,9 @@ import { GraphQLModule } from './graphql.module';
     MatDividerModule,
     FlexLayoutModule,
     MatListModule,
+    MatStepperModule,
     GraphQLModule,
+
   ],
   providers: [GigService],
   bootstrap: [AppComponent]
