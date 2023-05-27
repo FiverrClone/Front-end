@@ -32,4 +32,21 @@ const REGISTRE = gql`
     }
   }
 `;
-export { GET_GIGS, REGISTRE };
+
+const LOGIN= gql`
+  mutation Mutation($loginInput: LoginInput) {
+  loginUser(loginInput: $loginInput) {
+    id
+    firstname
+    lastname
+    username
+    email
+    password
+    gender
+    birthday
+    role
+    token
+  }
+}
+`;
+export { GET_GIGS, REGISTRE,LOGIN };

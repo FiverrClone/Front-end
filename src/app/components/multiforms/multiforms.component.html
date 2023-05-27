@@ -23,11 +23,15 @@
                 <div class="row">
                     <mat-form-field appearance="fill">
                         <mat-label>Birthday</mat-label>
+                        <input matInput placeholder="MM/DD/YYYY" formControlName="birthday">
+                    </mat-form-field>
+                    <!-- <mat-form-field appearance="fill">
+                        <mat-label>Birthday</mat-label>
                         <input matInput [matDatepicker]="picker" formControlName="birthday">
                         <mat-hint>MM/DD/YYYY</mat-hint>
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
-                    </mat-form-field>
+                    </mat-form-field> -->
                     <mat-radio-group aria-label="Select an option" formControlName="gender">
                         <mat-label><b>Gender</b></mat-label><br>
                         <mat-radio-button value="male">Male</mat-radio-button>
@@ -44,7 +48,7 @@
                 <div>
                     <mat-form-field appearance="fill">
                         <mat-label>User name</mat-label>
-                        <input matInput type="text" formControlName="userName" required>
+                        <input matInput type="text" formControlName="username" required>
                     </mat-form-field>
                     <mat-form-field appearance="fill">
                         <mat-label>Password</mat-label>
@@ -64,7 +68,7 @@
         <mat-step [stepControl]="addressform" label="Fill out address">
             <div formGroupName="address">
                 <p>Choose the type of account you want to create:</p>
-                    <mat-chip-listbox aria-label="Fish selection" formControlName="roles">
+                    <mat-chip-listbox aria-label="Fish selection" formControlName="role">
                         <mat-chip-option value="CUSTOMER">Simple account</mat-chip-option>
                         <mat-chip-option value="FREELANCER">Freelancer account</mat-chip-option>
                     </mat-chip-listbox>

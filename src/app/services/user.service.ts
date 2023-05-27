@@ -10,26 +10,16 @@ import { Apollo } from 'apollo-angular';
 })
 export class UserService {
 
-  // constructor(private _http:HttpClient) {}
   constructor(private apollo: Apollo) { }
 
-  register(user: any) {
+  registerUser(loginInput: any) {
     return this.apollo
       .mutate({
         mutation: REGISTRE,
         variables: {
-          user
+          loginInput
         }
       });
   }
 
-  // addUser(user: AppUser): Observable<any>
-  // {
-  //   return this._http.post('http://localhost:3000/user', user);
-
-
-  //   /*for put usernom roles:
-  //   return this._http.put('http://localhost:3000/user', data);
-  //   */
-  // } 
 }

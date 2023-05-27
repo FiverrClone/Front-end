@@ -1,6 +1,7 @@
 import { DialogRef } from '@angular/cdk/dialog';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators , FormGroup} from '@angular/forms';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-multiforms',
@@ -13,7 +14,8 @@ export class MultiformsComponent implements OnInit{
   hide = true;
 
 
-  constructor(    
+  constructor(   
+    private _user:UserService, 
     private builder: FormBuilder ,  
     private _dialogRef: DialogRef<MultiformsComponent>,
     ){}
@@ -29,11 +31,11 @@ export class MultiformsComponent implements OnInit{
       gender: this.builder.control('',Validators.required),
     }),
     contact: this.builder.group({
-      userName:this.builder.control('',Validators.required),
+      username:this.builder.control('',Validators.required),
       password:this.builder.control('',Validators.required),
     }),
     address: this.builder.group({
-      roles:this.builder.control('',Validators.required),
+      role:this.builder.control('',Validators.required),
     })
   });
 
@@ -48,7 +50,16 @@ export class MultiformsComponent implements OnInit{
   }
   HandleSubmit(){
     if(this.Empregister.valid){
-      console.log(this.Empregister.value);
+      const mergedData = {
+        ...this.Empregister.value["basic"],
+        ...this.Empregister.value["contact"],
+        ...this.Empregister.value["address"]
+      };
+      console.log(mergedData)
+      this._user.registerUser(mergedData).subscribe(({data})=>{
+        console.log(data);
+      })
+      
       this._dialogRef.close();      
     }
   }

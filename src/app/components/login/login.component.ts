@@ -33,21 +33,25 @@ export class LoginComponent {
   }
 
   OnFormLogin() {
-    let email = this.LoginForm.value.email;
-    let password = this.LoginForm.value.password;
-    this._login.login(email, password).subscribe({
-      next: (AppUser) => {
-        this._login.authenticateUser(AppUser).subscribe({
-          next: (data: boolean) => {
-            this._dialogRef.close();
-            this._router.navigateByUrl("./home");
-          }
-        });
-      },
-      error: (err) => {
-        this.errorMsg = err;
-      }
-    });
+    // let email = this.LoginForm.value.email;
+    // let password = this.LoginForm.value.password;
+    // const loginInput={email,password}
+    // this._login.loginUser(loginInput).subscribe((result:any)=>{
+    //   if (result){
+    //     localStorage.setItem('tokenJWT', result.token);
+    //     console.log('login correcto');
+        // this.auth.updateStateSession(true);
+      //   this.router.navigate(['/me']);
+      // } else {
+      //   this.error = true;
+      //   this.show = true;
+      //   this.auth.updateStateSession(false);
+      //   localStorage.removeItem('tokenJWT');
+      //   console.log('login incorrecto');
+      //   this.sendData = false;
+      // }
+    // })
+           
   }
 
   openMultiforms() {
