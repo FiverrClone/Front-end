@@ -1,7 +1,6 @@
 import { Component, HostListener, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { SigneUpComponent } from '../signe-up/signe-up.component';
 import { LoginComponent } from '../login/login.component';
 import { SnackBarService } from '../../services/snack-bar.service';
 import { Observable } from 'rxjs';

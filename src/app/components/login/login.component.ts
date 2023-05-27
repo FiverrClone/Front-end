@@ -4,9 +4,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
-import { SigneUpComponent } from '../signe-up/signe-up.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ForgotPasswordComponent } from '../forgot-password/forgot-password.component';
+import { MultiformsComponent } from '../multiforms/multiforms.component';
 
 @Component({
   selector: 'app-login',
@@ -50,8 +50,8 @@ export class LoginComponent {
     });
   }
 
-  openSigneUpForm() {
-    this._SigneUp.open(SigneUpComponent, { width: '500px', disableClose: false });
+  openMultiforms() {
+    this._SigneUp.open(MultiformsComponent, { width: '500px', disableClose: false });
   }
 
   openForgotPasswordForm(): void {
