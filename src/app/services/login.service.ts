@@ -11,8 +11,10 @@ export class LoginService {
   authenticatedUser!: AppUser;
 
   constructor() {
-    this.users.push({ id: "1", firstName:"mohammed", lastName:'daaouan', birthday:"30/07/2001", email: "med@gmail.com", password: "123456", roles: ["user"] ,img:"/image"});
-    this.users.push({ id: "1", firstName:"saaid", lastName:'frikh', birthday:"01/01/2001", email: "frikh@gmail.com", password: "123456", roles: ["user", "admin"], img:"/image"});
+    this.users.push({
+      id: 1, firstName: "mohammed", lastName: 'daaouan', birthday: "30/07/2001", email: "med@gmail.com", password: "123456", roles: ["user"], img: "/image", gender:''});
+    this.users.push({
+      id: 1, firstName: "saaid", lastName: 'frikh', birthday: "01/01/2001", email: "frikh@gmail.com", password: "123456", roles: ["user", "admin"], img: "/image",gender: ''});
   }
 
   public login(email: string, password: string): Observable<AppUser> {

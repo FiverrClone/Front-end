@@ -11,7 +11,7 @@ import { Apollo } from 'apollo-angular';
 export class UserService {
 
   // constructor(private _http:HttpClient) {}
-  constructor(private apollo: Apollo) { }
+  constructor(private apollo: Apollo,private http: HttpClient) { }
 
   register(user: any) {
     return this.apollo
@@ -21,6 +21,13 @@ export class UserService {
           user
         }
       });
+  }
+
+  getEmployees() {
+    return this.http.get<AppUser[]>;
+  }
+  deleteEmployee(id: string) {
+    return this.http.delete( + '/' + id);
   }
 
   // addUser(user: AppUser): Observable<any>

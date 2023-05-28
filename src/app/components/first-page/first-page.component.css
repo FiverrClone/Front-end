@@ -30,5 +30,11 @@
 }
 
 .profil{  
-  width: calc(95%/3);
+  width: 350px;
+  height: 150px;
+  margin:50px 30px 2px;
+}
+
+.categories{
+  padding-top: 150px;
 }

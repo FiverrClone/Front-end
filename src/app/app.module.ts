@@ -42,6 +42,7 @@ import { CardFreelancerComponent } from './components/card-freelancer/card-freel
 import { GraphQLModule } from './graphql.module';
 import { MultiformsComponent } from './components/multiforms/multiforms.component';
 import {MatStepperModule} from '@angular/material/stepper';
+import { NgImageSliderModule } from 'ng-image-slider';
 
 @NgModule({
   declarations: [
@@ -87,6 +88,7 @@ import {MatStepperModule} from '@angular/material/stepper';
     MatListModule,
     MatStepperModule,
     GraphQLModule,
+    NgImageSliderModule,
 
   ],
   providers: [GigService],

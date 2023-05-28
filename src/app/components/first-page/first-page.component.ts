@@ -5,7 +5,7 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Gig } from 'src/app/model/gig.model';
 import { Category } from 'src/app/model/category.model';
 import { SlideInterface } from 'src/app/model/slide.model';
-import { interval, Observable, startWith, Subject, switchMap, timer,} from 'rxjs';
+import { interval, Observable, startWith, Subject, switchMap, timer, } from 'rxjs';
 
 @Component({
   selector: 'app-first-page',
@@ -28,7 +28,7 @@ export class FirstPageComponent implements OnInit {
   searchInput = new FormControl();
   searchFormGroup: any;
   gigs!: Array<Gig>;
-  categories!: Array<Category>;
+  //categories!: Array<Category>;
   errorMSG!: string;
 
   constructor(
@@ -76,28 +76,6 @@ export class FirstPageComponent implements OnInit {
     return `url('${this.slides[this.currentIndex].url}')`;
   }
 
-  getGigs() {
-    this._gigService.getGigs().subscribe({
-      next: (data: Gig[]) => {
-        this.gigs = data;
-      },
-      error: (err) => {
-        this.errorMSG = err;
-      }
-    }); 
-  } 
-
-  getCategories() {
-    this._categoryService.getCategories().subscribe({
-      next: (data: Category[]) => {
-        this.categories = data;
-      },
-      error: (err) => {
-        this.errorMSG = err;
-      }
-    });
-  }
-
   profils = [
     {
       img: "../../../assets/user.jpg.jpeg",
@@ -116,6 +94,91 @@ export class FirstPageComponent implements OnInit {
       lastName: "MOHAMMED DAAOUAN",
       info: "technical skills, design principles, and problem-solving abilities to build engaging web applications that effectively meet the needs of both users and businesses",
       company: "GOOGLE"
+    },
+  ]
+
+  getGigs() {
+    this._gigService.getGigs().subscribe({
+      next: (data: Gig[]) => {
+        this.gigs = data;
+      },
+      error: (err) => {
+        this.errorMSG = err;
+      }
+    });
+  }
+
+  /*getCategories() {
+    this._categoryService.getCategories().subscribe({
+      next: (data: Category[]) => {
+        this.categories = data;
+      },
+      error: (err) => {
+        this.errorMSG = err;
+      }
+    });
+  }*/
+
+  categories = [
+    {
+      img: "../../../assets/back-end.png",
+      thumbImage:"../../../assets/back-end.png",
+      title: "Back-end",
+    },
+    {
+      img: "../../../assets/front-end.jpeg",
+      thumbImage: "../../../assets/front-end.jpeg",
+      title: "Front-end",
+    },
+    {
+      img: "../../../assets/mobile.jpeg",
+      thumbImage: "../../../assets/mobil.jpeg",
+      title: "Mobile",
+    },
+    {
+      img: "../../../assets/programmation.jpeg",
+      thumbImage: "../../../assets/programmation.jpeg",
+      title: "Programmation",
+    },
+    {
+      img: "../../../assets/back-end.png",
+      thumbImage: "../../../assets/back-end.png",
+      title: "Back-end",
+    },
+    {
+      img: "../../../assets/mobil.jpeg",
+      thumbImage: "../../../assets/mobil.jpeg",
+      title: "Mobile",
+    },
+    {
+      img: "../../../assets/programmation.jpeg",
+      thumbImage: "../../../assets/programmation.jpeg",
+      title: "Programmation",
+    },
+    {
+      img: "../../../assets/mobil.jpeg",
+      thumbImage: "../../../assets/mobil.jpeg",
+      title: "Mobile",
+    },
+    {
+      img: "../../../assets/programmation.jpeg",
+      thumbImage: "../../../assets/programmation.jpeg",
+      title: "Programmation",
+    },
+    {
+      img: "../../../assets/programmation.jpeg",
+      thumbImage: "../../../assets/programmation.jpeg",
+      title: "Programmation",
+    },
+    {
+      img: "../../../assets/mobil.jpeg",
+      thumbImage: "../../../assets/mobil.jpeg",
+      title: "Mobile",
+    },
+    {
+      img: "../../../assets/programmation.jpeg",
+      thumbImage: "../../../assets/programmation.jpeg",
+      title: "Programmation",
     },
   ]
 
