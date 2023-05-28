@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Gig } from './../model/gig.model';
 import { Injectable } from '@angular/core';
 import { Observable, from, of, throwError } from 'rxjs';
-
+ 
 @Injectable({
   providedIn: 'root'
 })

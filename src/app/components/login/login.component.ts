@@ -1,6 +1,6 @@
 import { AppUser } from './../../model/user.model';
 import { DialogRef } from '@angular/cdk/dialog';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
@@ -13,10 +13,13 @@ import { MultiformsComponent } from '../multiforms/multiforms.component';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit{
   LoginForm: FormGroup;
   errorMsg: any;
   hide = true;
+  error!: boolean ;
+  show!: boolean;
+  sendData!: boolean;
 
   constructor(
     private _fb: FormBuilder,
@@ -31,26 +34,31 @@ export class LoginComponent {
       password: this._fb.control(""),
     })
   }
+  ngOnInit(): void {
+   // this._login.start(); 
+  }
 
   OnFormLogin() {
-    // let email = this.LoginForm.value.email;
-    // let password = this.LoginForm.value.password;
-    // const loginInput={email,password}
-    // this._login.loginUser(loginInput).subscribe((result:any)=>{
-    //   if (result){
-    //     localStorage.setItem('tokenJWT', result.token);
-    //     console.log('login correcto');
-        // this.auth.updateStateSession(true);
-      //   this.router.navigate(['/me']);
-      // } else {
-      //   this.error = true;
-      //   this.show = true;
-      //   this.auth.updateStateSession(false);
-      //   localStorage.removeItem('tokenJWT');
-      //   console.log('login incorrecto');
-      //   this.sendData = false;
-      // }
-    // })
+     let email = this.LoginForm.value.email;
+     let password = this.LoginForm.value.password;
+     const loginInput={email,password}
+     this._login.loginUser(loginInput).subscribe((result:any)=>{
+      console.log(result.data.loginUser.token);
+       if (result){
+         localStorage.setItem('token', result.data.loginUser.token);
+         localStorage.setItem('user', JSON.stringify(result.data.loginUser));
+         console.log('login correct');
+         this._login.updateStateSession(true);
+         this._router.navigate(['/home']);
+       } else {
+         this.error = true;
+         this.show = true;
+         this._login.updateStateSession(false);
+         localStorage.removeItem('token');
+         console.log('login incorrecto');
+         this.sendData = false;
+       }
+     })
            
   }
 

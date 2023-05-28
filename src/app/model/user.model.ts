@@ -6,6 +6,6 @@ export interface AppUser {
     gender:'';
     email: string;
     password: string;
-    roles: string[];
+    role: string[];
     img:string;
 }

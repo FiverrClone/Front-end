@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Apollo } from 'apollo-angular';
 import { AppUser } from 'src/app/model/user.model';
 import { UserService } from 'src/app/services/user.service';
 @Component({
@@ -12,22 +13,27 @@ export class ProfileComponent implements OnInit {
   @Output() onRemoveUser = new EventEmitter<number>();
   @Output() onEditUser = new EventEmitter<number>();
 
-  constructor() {
+  gigs: any[]=[];
+  loading = true;
+  error: any;
+
+
+  constructor(  private apollo: Apollo) {
     this.user = {
       id: 0,
       firstName: '',
       lastName: '',
       birthday: '',
       gender: '',
-      roles: [],
+      role: [],
       email: '',
       password: '',
       img: '',
     }
   }
 
-  ngOnInit(): void {
-    console.log(this.user);
+  ngOnInit() :void{
+   // if (localStorage.getItem('user') !== null ) 
   }
 
   deleteUserClicked() {

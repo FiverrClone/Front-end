@@ -1,20 +1,37 @@
 import { AppUser } from './../model/user.model';
-import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import {LOGIN} from '../graphql.operations'
+import { Injectable, OnInit } from '@angular/core';
+import { Observable, Subject, map, of, throwError } from 'rxjs';
+import { LOGIN } from '../graphql.operations'
 import { Apollo } from 'apollo-angular';
+import { Route, Router } from '@angular/router';
+import{createApollo} from'../graphql.module'
 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class LoginService implements OnInit{
 
   // users: AppUser[] = [];
   // authenticatedUser!: AppUser;
+  public accessVar = new Subject<boolean>();
+  public accessVar$ = this.accessVar.asObservable();
+  public userVar = new Subject<any>();
+  public userVar$ = this.userVar.asObservable();
+  loginResult: any;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo, public router: Router) { }
+  
+  ngOnInit(): void {}
 
-  loginUser(loginInput: any) {
+  public updateStateSession(newValue: boolean){
+    this.accessVar.next(newValue);
+  }
+
+  public updateUser(newValue: any) {
+    this.userVar.next(newValue);
+  }
+
+  loginUser(loginInput: any): Observable<any>  {
     return this.apollo
       .mutate({
         mutation: LOGIN,
@@ -22,6 +39,47 @@ export class LoginService {
           loginInput
         }
       });
+  }
+
+ /* getMe() {
+    this.loginUser(any).subscribe((result:any)=>{
+      console.log(result);
+  }
+}*/
+
+  logout() {
+    this.updateStateSession(false);
+    localStorage.removeItem('token');
+    const currentRouter = this.router.url;
+    if (currentRouter !== '/register' && currentRouter !== '/users') {
+      this.router.navigate(['/login']);
+    }
+  }
+
+  private sincroValues(result: any, state: boolean) {
+    this.updateStateSession(state);
+    this.updateUser(result);
+  }
+
+ /* start() {
+    if (localStorage.getItem('token') !== null ) {
+      this.loginUser(loginInput).subscribe((result: any) => {
+        if (result) {
+       //   if (this.router.url === '/login') {
+            this.sincroValues(result, true);
+            this.router.navigate(['/home']);
+         // }
+        }
+        this.sincroValues(result, false);
+      });
+    } else { // No hay token
+      this.sincroValues(null, false);
+    }
+  }*/
+
+  auth() {
+    throw new Error('Method not implemented.');
+  }
 
 
   // public login(email: string, password: string): Observable<AppUser> {
@@ -44,4 +102,4 @@ export class LoginService {
   //   return this.authenticatedUser!=undefined;
   // }
 
-    }}
+}
