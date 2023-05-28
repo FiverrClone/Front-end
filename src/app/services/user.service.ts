@@ -10,25 +10,20 @@ import { Apollo } from 'apollo-angular';
 })
 export class UserService {
 
-<<<<<<< HEAD
-  constructor(private apollo: Apollo) { }
-=======
+
   // constructor(private _http:HttpClient) {}
   constructor(private apollo: Apollo,private http: HttpClient) { }
->>>>>>> 1e29ba6e270b8f257504b17c4cfe8cf2da9d3ffd
 
-  registerUser(loginInput: any) {
+  registerUser(registerInput: any) {
     return this.apollo
       .mutate({
         mutation: REGISTRE,
         variables: {
-          loginInput
+          registerInput
         }
       });
   }
 
-<<<<<<< HEAD
-=======
   getEmployees() {
     return this.http.get<AppUser[]>;
   }
@@ -45,5 +40,4 @@ export class UserService {
   //   return this._http.put('http://localhost:3000/user', data);
   //   */
   // } 
->>>>>>> 1e29ba6e270b8f257504b17c4cfe8cf2da9d3ffd
 }

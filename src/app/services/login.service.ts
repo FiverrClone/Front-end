@@ -12,25 +12,17 @@ export class LoginService {
   // users: AppUser[] = [];
   // authenticatedUser!: AppUser;
 
-<<<<<<< HEAD
   constructor(private apollo: Apollo) {}
 
-  loginUser(registerInput: any) {
+  loginUser(loginInput: any) {
     return this.apollo
       .mutate({
         mutation: LOGIN,
         variables: {
-          registerInput
+          loginInput
         }
       });
-=======
-  constructor() {
-    this.users.push({
-      id: 1, firstName: "mohammed", lastName: 'daaouan', birthday: "30/07/2001", email: "med@gmail.com", password: "123456", roles: ["user"], img: "/image", gender:''});
-    this.users.push({
-      id: 1, firstName: "saaid", lastName: 'frikh', birthday: "01/01/2001", email: "frikh@gmail.com", password: "123456", roles: ["user", "admin"], img: "/image",gender: ''});
->>>>>>> 1e29ba6e270b8f257504b17c4cfe8cf2da9d3ffd
-  }
+
 
   // public login(email: string, password: string): Observable<AppUser> {
   //   let AppUser = this.users.find(u => u.email == email);
@@ -52,4 +44,4 @@ export class LoginService {
   //   return this.authenticatedUser!=undefined;
   // }
 
-}
+    }}
