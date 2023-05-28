@@ -1,4 +1,5 @@
 import { SellerService } from './../services/seller.service';
+
 export interface Gig {
     id: string;
     name: string;
