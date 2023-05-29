@@ -49,4 +49,24 @@ const LOGIN= gql`
   }
 }
 `;
-export { GET_GIGS, REGISTRE,LOGIN };
+
+const GIG=gql`
+query ExampleQuery($gigId: ID!) {
+  gig(id: $gigId) {
+    id
+    title
+    description
+    user {
+      username
+      email
+      id
+    }
+    image
+    category
+    createdAt
+    updatedAt
+  }
+}
+
+`;
+export { GET_GIGS, REGISTRE,LOGIN , GIG};

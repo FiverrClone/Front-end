@@ -1,4 +1,7 @@
 @import "../home/home.component.css";
+.head{
+    justify-content: space-between;
+}
 
 .black-border {
     border: 1px solid black;
@@ -23,3 +26,11 @@ table {
     border-radius: 10px;
     padding: 0px 2rem;
 }
+
+.HOVER:hover {
+    transform: scale(1.03);
+    transition: all linear 200ms;
+    z-index: 1;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, .3);
+    cursor: pointer;
+  }

@@ -8,6 +8,7 @@ import { Observable, from, of, throwError } from 'rxjs';
 })
 export class GigService {
   private gigs!: Array<Gig>;
+  host!: string;
   
   constructor(private http: HttpClient) {
   }

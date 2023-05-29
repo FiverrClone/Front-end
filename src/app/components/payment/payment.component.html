@@ -1,0 +1,80 @@
+<!--<div class="col-md-6 custom-card" *ngIf="currentOrder">
+    <form #f="ngForm" (ngSubmit)="onParOrder(f.value)">
+      <mat-form-field class="form-field">
+        <mat-label>Type:</mat-label>
+        <mat-select name="type" ngModel>
+          <mat-option value="Visa">Visa</mat-option>
+          <mat-option value="Cmi">Cmi</mat-option>
+          <mat-option value="Cmi">Cmi</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Card Number:</mat-label>
+        <input matInput type="text" name="cardNumber" ngModel>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Code Verif:</mat-label>
+        <input matInput type="text" name="codeVerif" ngModel>
+      </mat-form-field>
+      <mat-form-field class="form-field">
+        <mat-label>Amount:</mat-label>
+        <input matInput type="text" name="amount" ngModel [(ngModel)]="currentOrder.totalAmount">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Pay</button>
+    </form>
+  </div>
+  
+  <div class="panel custom-panel">
+    <div class="panel-heading">Récap de votre commande</div>
+    <div class="panel-body">
+      <div class="col-md-5">
+        <div class="form-group">
+          <label>Nom du Client:</label>
+          <label>{{ orderService.order.client.firstName }}</label>
+        </div>
+        <div class="form-group">
+          <label>Tel Client:</label>
+          <label>{{ orderService.order.client.id }}</label>
+        </div>
+        <div class="form-group">
+          <label>Email:</label>
+          <label>{{ orderService.order.client.email }}</label>
+        </div>
+      </div>
+      <div class="col-md-5">
+        <div class="form-group">
+          <label>Order ID:</label>
+          <label>{{ orderService.order.id }}</label>
+        </div>
+        <div class="form-group">
+          <label>Order Date:</label>
+          <label>{{ orderService.order.date }}</label>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <tr>
+          <th>ID</th>
+          <th>Désignation</th>
+          <th>Prix</th>
+        </tr>
+        <tr *ngFor="let g of orderService.order.gigs">
+          <td>{{ g.id }}</td>
+          <td>{{ g.name }}</td>
+          <td>{{ g.price | number: '0.2' }}</td>
+        </tr>
+        <tr>
+          <td colspan="3">Total:</td>
+          <td>{{ orderService.getTotal() | number: '0.2' }}</td>
+        </tr>
+      </table>
+      <button mat-raised-button color="primary" (click)="onParOrder(1)" *ngIf="!orderService.order.id">
+        Confirmer la commande
+      </button>
+      <button mat-raised-button color="primary" (click)="onParOrder(1)" *ngIf="orderService.order.id">
+        Pay Order
+      </button>
+    </div>
+  </div>
+-->

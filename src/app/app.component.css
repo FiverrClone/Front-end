@@ -14,3 +14,11 @@
   mat-drawer {
     background: #0f172a;
   }
+
+  app-header{
+    padding-bottom: 128px;
+  }
+
+  app-footer{
+    padding-top: 600px;
+  }

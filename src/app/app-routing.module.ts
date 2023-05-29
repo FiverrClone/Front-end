@@ -10,6 +10,7 @@ import { FirstPageComponent } from './components/first-page/first-page.component
 import { ProfileComponent } from './components/profile/profile.component';
 import { DetailGigComponent } from './components/detail-gig/detail-gig.component';
 import { MultiformsComponent } from './components/multiforms/multiforms.component';
+import { GigFormComponent } from './components/gig-form/gig-form.component';
 
 const routes: Routes = [ 
   {path: 'firstpage', component: FirstPageComponent},
@@ -18,8 +19,9 @@ const routes: Routes = [
   {path: 'multiforms', component: MultiformsComponent},
   {path: 'login', component: LoginComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path:'formGig', component:GigFormComponent},
   {path: 'search', component: SearchComponent},
-  {path: 'gig/:id', component: DetailGigComponent},
+  {path: 'gig-details/:gigId', component: DetailGigComponent},
   {path: '', redirectTo: 'firstpage', pathMatch: 'full'},
   {path: '**', component: NotFoundComponent},
 

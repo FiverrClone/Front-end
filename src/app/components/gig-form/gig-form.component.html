@@ -1,0 +1,39 @@
+<div *ngIf="errorMsg" class="error-message">{{errorMsg}}</div>
+<form [formGroup]="GigForm" (ngSubmit)="OnSave()" class="form-container">
+    <h1><b>Add new gig</b></h1>
+    <div mat-dialog-content class="content">
+        <mat-form-field class="form-field">
+            <mat-label>name</mat-label>
+            <input matInput type="text" placeholder="name" formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>Category</mat-label>
+            <mat-select>
+                <mat-option value="option">Front-End</mat-option>
+                <mat-option value="option">Back-End</mat-option>
+                <mat-option value="option">Mobile</mat-option>
+                <mat-option value="option">Programmation</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>description</mat-label>
+            <input matInput type="text" formControlName="description">
+        </mat-form-field>
+        <mat-form-field class="form-field">
+            <mat-label>prix</mat-label>
+            <input matInput type="text" formControlName="prix">
+        </mat-form-field>
+    </div>
+    <div class="form-group my-3">
+        <label class="form-check-label">Image</label>
+        <input type="file" class="form-control" name="image" (change)="onFileSelected($event)" />
+    </div>
+    <div mat-dialog-actions class="action">
+        <button *ngIf="!editForm" type="submit" class="btn btn-success btn-block">
+            <i class="fa fa-paper-plane"></i> New Article
+        </button>
+        <button *ngIf="editForm" (click)="updateGig()" class="btn btn-warning btn-block">
+            <i class="fa fa-refresh"></i> Update Article
+        </button>
+    </div>
+</form>

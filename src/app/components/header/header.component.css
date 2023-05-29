@@ -1,4 +1,4 @@
-mat-toolbar {
+/*mat-toolbar {
   position: fixed;
   top: 0;
   left: 0;
@@ -26,4 +26,54 @@ button {
 
 ::ng-deep .mat-menu-content {
   width: 160px;
+}*/
+.bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.fixed-toolbar {
+  position: relative;
+}
+
+.custom-toolbar {
+  background-color: #f8f9fa;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.button {
+  outline: none;
+  border: 0;
+  display: flex;
+}
+
+.user-profile {
+  margin-left: auto;
+}
+
+.user-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.user-image {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
 }

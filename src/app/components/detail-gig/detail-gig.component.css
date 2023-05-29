@@ -1,1 +1,7 @@
-@import "../home/home.component.css"; 
+@import "../home/home.component.css";  
+
+.comment-box{
+    padding: 15px 35px;
+    background-color: #f0f0f0;
+}
+

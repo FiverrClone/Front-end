@@ -43,7 +43,9 @@ import { GraphQLModule } from './graphql.module';
 import { MultiformsComponent } from './components/multiforms/multiforms.component';
 import {MatStepperModule} from '@angular/material/stepper';
 import { NgImageSliderModule } from 'ng-image-slider';
-
+import { GigFormComponent } from './components/gig-form/gig-form.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,8 @@ import { NgImageSliderModule } from 'ng-image-slider';
     DetailGigComponent,
     CardFreelancerComponent,
     MultiformsComponent,
+    GigFormComponent,
+    PaymentComponent,
   ],
   imports: [
     BrowserModule,
@@ -89,6 +93,7 @@ import { NgImageSliderModule } from 'ng-image-slider';
     MatStepperModule,
     GraphQLModule,
     NgImageSliderModule,
+    FormsModule,
 
   ],
   providers: [GigService],

@@ -108,6 +108,7 @@ export class FirstPageComponent implements OnInit {
     });
   }
 
+
   /*getCategories() {
     this._categoryService.getCategories().subscribe({
       next: (data: Category[]) => {

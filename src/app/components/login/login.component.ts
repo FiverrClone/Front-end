@@ -50,6 +50,7 @@ export class LoginComponent implements OnInit{
          console.log('login correct');
          this._login.updateStateSession(true);
          this._router.navigate(['/home']);
+         this._dialogRef.close();      
        } else {
          this.error = true;
          this.show = true;

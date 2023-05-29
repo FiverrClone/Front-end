@@ -3,6 +3,7 @@ import { Apollo, gql } from 'apollo-angular';
 import { GET_GIGS } from 'src/app/graphql.operations';
 import { Gig } from 'src/app/model/gig.model';
 import { GigComponent } from '../gig/gig.component';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,18 +13,25 @@ export class HomeComponent implements OnInit {
   gigs: any[]=[];
   loading = true;
   error: any;
+  router: any;
 
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo, router: Router) {}
 
   ngOnInit() :void{
     this.apollo.watchQuery({
         query:GET_GIGS
       })
       .valueChanges.subscribe((result: any) => {
+        console.log(result.data);
         this.gigs = result.data?.gigs;
         this.loading = result.loading;
         this.error = result.error;
       });
+  }
+
+  showGig(gig: any){
+    //this.router.navigate(['/gig-details'],{queryParams:{id:this.gigs.}});
+
   }
 
   // gigs: Gig[] = [

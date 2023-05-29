@@ -1,6 +1,41 @@
 .page__content {
     min-height: calc(100vh - 178px);
-    border-radius: 10px;
+    border-radius: 8px;
     color: black;
     background-color: whitesmoke;
+}
+
+
+.gig-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.gig-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gig-card:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Additional styles for gig-card content */
+.gig-card h3 {
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.gig-card p {
+    margin-top: 5px;
+    color: #888;
 }
