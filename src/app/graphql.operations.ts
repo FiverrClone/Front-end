@@ -11,6 +11,7 @@ const GET_GIGS = gql`
       }
       image
       category
+      price
       createdAt
     }
   }
@@ -69,4 +70,21 @@ query ExampleQuery($gigId: ID!) {
 }
 
 `;
-export { GET_GIGS, REGISTRE,LOGIN , GIG};
+
+const ADDGIG=gql`
+mutation CreateGig($price: String!, $category: String!, $description: String!, $title: String!) {
+  createGig(price: $price, category: $category, description: $description, title: $title) {
+    category
+    createdAt
+    description
+    id
+    image
+    price
+    title
+    updatedAt
+  }
+}
+`;
+
+
+export { GET_GIGS, REGISTRE,LOGIN , GIG, ADDGIG};

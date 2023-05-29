@@ -46,7 +46,7 @@ export class LoginService implements OnInit{
       console.log(result);
   }
 }*/
-
+ 
   logout() {
     this.updateStateSession(false);
     localStorage.removeItem('token');

@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Gig } from './../model/gig.model';
 import { Injectable } from '@angular/core';
 import { Observable, from, of, throwError } from 'rxjs';
+import { Apollo } from 'apollo-angular';
+import { ADDGIG } from '../graphql.operations';
  
 @Injectable({
   providedIn: 'root'
@@ -10,7 +12,20 @@ export class GigService {
   private gigs!: Array<Gig>;
   host!: string;
   
-  constructor(private http: HttpClient) {
+  constructor(private apollo: Apollo, private http: HttpClient) {
+  } 
+
+  createGig(price: String, category: String, description: String, title: String): Observable<any>  {
+    return this.apollo
+      .mutate({
+        mutation: ADDGIG,
+        variables: {
+          price,
+          category,
+          description,
+          title,
+        }
+      });
   }
 
   public getGigs(): Observable<Array<Gig>> {

@@ -23,6 +23,7 @@ export function createApollo(httpLink: HttpLink) {
       return {
         headers: {
           Authorization: `Bearer ${token}`,
+          "x-apollo-operation-name":"true"
         },
       };
     }

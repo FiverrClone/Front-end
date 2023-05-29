@@ -41,16 +41,12 @@ export class GigFormComponent implements OnInit{
     private _router: Router,
   ){
     this.GigForm = this._fb.group({
-      id: this._fb.control(""),
-      name: this._fb.control(""),
+      title: this._fb.control(""),
       category: this._fb.control(""),
       description: this._fb.control(""),
       price: this._fb.control(""),
-      img: this._fb.control(""),
-      sellerName: this._fb.control(""),
-      sellerId: this._fb.control(""),
-      sellerImg: this._fb.control(""),
-      gigDate: this._fb.control(""),
+      file: this._fb.control(""),
+
     })
   }
   
@@ -63,10 +59,19 @@ export class GigFormComponent implements OnInit{
   }
 
   OnSave(){
+    if(this.GigForm.valid){
+      const { price, category, description, title} = this.GigForm.value;
+     
+      this._gig.createGig(price,category,description,title).subscribe(({data})=>{
+        console.log(data);
+      })
+      
+      this._dialogRef.close();      
+    }
 
   }
   updateGig(){
-
+ 
   }
 
 }
