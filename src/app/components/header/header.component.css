@@ -40,7 +40,7 @@ button {
 }
 
 .custom-toolbar {
-  background-color: #f8f9fa;
+  background-color: #faf8f8;
 }
 
 .logo {
@@ -51,10 +51,25 @@ button {
 }
 
 .button {
-  outline: none;
-  border: 0;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+.login-button {
+  margin-right: 10px;
+  color: #fff;
+}
+
+.signup-button {
+  color: #fff;
+}
+.signup-button:hover{
+  color: #a31ee0;
+  }
+.login-button:hover{
+  color: #a31ee0;
+  }
 
 .user-profile {
   margin-left: auto;
@@ -76,4 +91,17 @@ button {
 
 .example-spacer {
   flex: 1 1 auto;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-link {
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #a31ee0;
 }

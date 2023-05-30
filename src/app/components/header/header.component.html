@@ -73,15 +73,22 @@
 <p class="bar" style="padding-bottom: 128px;">
   <mat-toolbar class="custom-toolbar fixed-toolbar">
     <mat-toolbar-row class="justify-content-between" [ngStyle]="navbg">
-      <a routerLink="/" class="logo">LOGO</a>
+      <a routerLink="/" class="logo">ANGULAR</a>
 
-      <span class="example-spacer"></span>
+      <span class="example-spacer">
+        <nav style="display: flex;">
+          <a class="nav-link" href="/home">HOME</a>
+          <a class="nav-link" href="/profile">PROFILE</a>
+        </nav>
+      </span>
+      
 
       <nav class="button">
-        <button mat-raised-button (click)="openLoginForm()">Login</button>
-        <button mat-raised-button (click)="openmultiforms()">Sign Up</button>
+        <button class="login-button" mat-raised-button (click)="openLoginForm()">Login</button>
+        <button class="signup-button" mat-raised-button (click)="openmultiforms()">Sign Up</button>
       </nav>
-
+      
+ 
       <div class="user-profile">
         <ul class="user-list">
           <li>
@@ -133,7 +140,9 @@
       </mat-menu>
 
       <span class="example-spacer"></span>
-      <a routerLink="search">Search</a>
+      <a routerLink="search"><form class="d-flex">
+        <button class="btn btn-outline-primary" type="submit">Search</button>
+      </form></a>
     </mat-toolbar-row>
   </mat-toolbar>
 </p>

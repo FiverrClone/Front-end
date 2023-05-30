@@ -1,12 +1,14 @@
 <div class="contain mt-5 p-5">
-    <form [formGroup]="searchForm" (ngSubmit)="submitForm()">
-      <div fxLayout="row">
-        <mat-form-field fxFlex="80" class="mr-3">
-          <input matInput type="text" formControlName="gigName" placeholder="Search what you looking for Here...">
-        </mat-form-field>
-        <button mat-raised-button color="primary" type="submit">Search</button>
-      </div>
-    </form>
+  <form [formGroup]="searchForm" (ngSubmit)="submitForm()" class="search-form">
+    <div fxLayout="row" class="form-container">
+      <mat-form-field fxFlex="80" class="mr-3">
+        <input matInput type="text" formControlName="gigName" placeholder="Search what you're looking for here..."
+          class="input-field">
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit" class="search-button">Search</button>
+    </div>
+  </form>
+  
   
     <div fxLayout="row wrap" fxLayoutGap="16px" class="mt-5">
       <div fxFlex.gt-sm="25%" fxFlex.lt-md="33%" fxFlex.gt-xs="50%" *ngFor="let g of gigs">

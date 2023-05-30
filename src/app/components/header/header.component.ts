@@ -48,7 +48,7 @@ export class HeaderComponent {
 
     if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
       this.navbg = {
-        'background-color': 'grey',
+        'background-color': '#369ebd',
         'position': 'fixed',
       }
       this.navbg2 = {

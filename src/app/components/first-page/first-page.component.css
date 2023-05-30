@@ -24,6 +24,7 @@
 }
 
 .profils {
+  padding-top: 150px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -36,5 +37,5 @@
 }
 
 .categories{
-  padding-top: 150px;
+  padding-top: 250px;
 }

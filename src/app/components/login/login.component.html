@@ -1,26 +1,26 @@
-<div mat-dialog-title class="logo">LOGO</div>
-<div *ngIf="errorMsg">{{errorMsg}}</div>
-<form [formGroup]="LoginForm" (ngSubmit)="OnFormLogin()">
-    <div mat-dialog-content class="content">
-        <mat-form-field appearance="outline">
-            <mat-label>Email</mat-label>
-            <input matInput type="email" placeholder="example@gmail.com" formControlName="email">
-        </mat-form-field>
-        <mat-form-field appearance="outline">
-            <mat-label>Password</mat-label>
-            <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
-            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
-                [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-        </mat-form-field>
-    </div>
 
-    <div style="padding: 0px 25px 20px"><small><button mat-raised-button mat-dialog-close="true"
+<div mat-dialog-title class="logo">ANGULAR</div>
+<div *ngIf="errorMsg" class="error-message">{{errorMsg}}</div>
+<form [formGroup]="LoginForm" (ngSubmit)="OnFormLogin()" class="form">
+  <div mat-dialog-content class="content">
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput type="email" placeholder="example@gmail.com" formControlName="email" class="input-field">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [type]="hide ? 'password' : 'text'" formControlName="password" class="input-field">
+      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide" class="password-toggle">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+   <!--  <div style="padding: 0px 25px 20px"><small><button mat-raised-button mat-dialog-close="true"
                 (click)="openForgotPasswordForm()">Forgot password</button></small></div>
-
-    <div mat-dialog-actions class="action">
-        <button mat-raised-button type="submit">Login</button>
-        <button mat-raised-button mat-dialog-close="true" (click)="openMultiforms()">Don't have an account</button>
-    </div>
+-->
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="submit" class="login-button">Login</button>
+    <button mat-raised-button mat-dialog-close="true" (click)="openMultiforms()" class="signup-button">Don't have an account</button>
+  </div>
 </form>
