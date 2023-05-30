@@ -1,7 +1,6 @@
 
-<button type="button" class="btn btn-outline-success btn-lg" ><b>Buy Gig</b></button>
-
 <div class="container">
+
     <div class="rounded-xl shadow-xl" style="width: 600px; margin-left: 400px;">
         <img class="w-96 rounded-t-xl h-36 object-cover" style="width: 600px; height: 300px;" src="{{gig.image}}"
             alt="gig image" />
@@ -26,10 +25,12 @@
             </div>
         </div>
     </div>
+    <button type="button" class="btn btn-outline-success btn-lg" (click)="payment(1)"><b>Buy Gig</b></button>
 
-    <div class="col-md-3">
+
+    <!--<div class="col-md-3">
         <app-payment></app-payment>
-    </div>
+    </div>-->
 
     <div class="review">
         <div class="comment">
@@ -98,4 +99,5 @@
             </div>
         </div>
     </div>
+
 </div>

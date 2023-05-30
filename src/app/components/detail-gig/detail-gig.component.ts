@@ -16,7 +16,7 @@ export class DetailGigComponent implements OnInit{
   gig: any;
   error: any;
   loading!: false;
- 
+  paymentHandler:any=null;
   constructor( 
     private Activeroute: ActivatedRoute,
     private gigService: GigService,
@@ -29,6 +29,7 @@ export class DetailGigComponent implements OnInit{
       this.gigId=this.Activeroute.snapshot.paramMap.get('gigId');
       console.log(this.gigId);
       this.loadGigDetails(this.gigId);
+      this.invokeStripe();
   }
   
 
@@ -55,16 +56,16 @@ export class DetailGigComponent implements OnInit{
       const script=window.document.createElement('script');
       script.id='stripe-script';
       script.type='text/javascript';
-      script.src="";
+      script.src='https://checkout.stripe.com/checkout.js';
       window.document.body.appendChild(script);
     }
   }
-  payment(){
-    const paymentHandler=(<any>window).StripCheckout.configure({
+  payment(amount:any){
+    const paymentHandler=(<any>window).StripeCheckout.configure({
       key:'pk_test_51ND77jDcyWArQDWrCCy0YNu8yufjnl8Lc8D5ZJUzFZthzsekGDbqt0mt2BWaXgQQaliGERCuZvNaPtifJnB13Yp200At0PmAnX',
       locale:'auto',
-      token:function(stripToken:any){
-        console.log(stripToken.card);
+      token:function(stripeToken:any){
+        console.log(stripeToken.card);
         alert('Stripe token generated');
       },
     });
@@ -72,7 +73,8 @@ export class DetailGigComponent implements OnInit{
     paymentHandler.open({
       name:'Mohammed',
       description:'2 Gig added',
-    })
+      amount:amount*100,
+    });
   }
 
 
