@@ -46,6 +46,9 @@ import { NgImageSliderModule } from 'ng-image-slider';
 import { GigFormComponent } from './components/gig-form/gig-form.component';
 import { PaymentComponent } from './components/payment/payment.component';
 import { FormsModule } from '@angular/forms';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,6 +97,7 @@ import { FormsModule } from '@angular/forms';
     GraphQLModule,
     NgImageSliderModule,
     FormsModule,
+    MatGridListModule,
 
   ],
   providers: [GigService],
