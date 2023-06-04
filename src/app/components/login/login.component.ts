@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit{
       console.log(result.data.loginUser.token);
        if (result){
          localStorage.setItem('token', result.data.loginUser.token);
-         localStorage.setItem('user', JSON.stringify(result.data.loginUser));
+         localStorage.setItem('authUser', JSON.stringify(result.data.loginUser));
          console.log('login correct');
          this._login.updateStateSession(true);
          this._router.navigate(['/home']);

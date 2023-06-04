@@ -12,12 +12,13 @@ import{createApollo} from'../graphql.module'
 export class LoginService implements OnInit{
 
   // users: AppUser[] = [];
-  // authenticatedUser!: AppUser;
+  //authenticatedUser!: AppUser;
   public accessVar = new Subject<boolean>();
   public accessVar$ = this.accessVar.asObservable();
   public userVar = new Subject<any>();
   public userVar$ = this.userVar.asObservable();
   loginResult: any;
+  logedUser:any;
 
   constructor(private apollo: Apollo, public router: Router) { }
   
@@ -48,7 +49,7 @@ export class LoginService implements OnInit{
 }*/
  
   logout() {
-    this.updateStateSession(false);
+   // this.updateStateSession(false);
     localStorage.removeItem('token');
     const currentRouter = this.router.url;
     if (currentRouter !== '/register' && currentRouter !== '/users') {
@@ -88,18 +89,20 @@ export class LoginService implements OnInit{
   //   return of(AppUser);
   // }
 
-  // public authenticateUser(appUser: AppUser):Observable<boolean>{
-  //   this.authenticatedUser=appUser;
-  //   localStorage.setItem("authUser", JSON.stringify({email:appUser.email, roles:appUser.roles, jwt:"JWT_TOKEN"}));
-  //   return of(true);
-  // }
+  /* public authenticateUser(appUser: AppUser):Observable<boolean>{
+     this.authenticatedUser=appUser;
+     localStorage.getItem("authUser", JSON.stringify({email:appUser.email, roles:appUser.role, jwt:"JWT_TOKEN"}));
+     return of(true);
+   }*/
 
-  // public hasRole(role:string): boolean{
-  //   return this.authenticatedUser!.roles.includes(role);
-  // }
+   public hasRole(role:string): boolean{
+    if(localStorage.getItem("authUser"))
+    this.logedUser=localStorage.getItem("authUser")
+     return this.logedUser.role.includes(role);
+   }
 
-  // public isAuthenticated(){
-  //   return this.authenticatedUser!=undefined;
-  // }
+/*  public isAuthenticated(){
+    return this.authenticatedUser!=undefined;
+  }*/
 
 }

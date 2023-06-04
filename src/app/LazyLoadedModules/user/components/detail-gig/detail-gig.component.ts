@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GigService } from '../../services/gig.service';
+import { GigService } from '../../../../services/gig.service';
 import { GIG } from 'src/app/graphql.operations';
 import { Apollo } from 'apollo-angular';
 
@@ -52,8 +52,8 @@ export class DetailGigComponent implements OnInit{
 
 
   invokeStripe(){
-    if(!window.document.getElementById('stripe-script')){
-      const script=window.document.createElement('script');
+    if(!document.getElementById('stripe-script')){
+      const script=document.createElement('script');
       script.id='stripe-script';
       script.type='text/javascript';
       script.src='https://checkout.stripe.com/checkout.js';

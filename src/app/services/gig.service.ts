@@ -15,17 +15,22 @@ export class GigService {
   constructor(private apollo: Apollo, private http: HttpClient) {
   } 
 
-  createGig(price: String, category: String, description: String, title: String): Observable<any>  {
+  createGig(input:any): Observable<any>  {
     return this.apollo
       .mutate({
         mutation: ADDGIG,
         variables: {
-          price,
-          category,
-          description,
-          title,
+         input
         }
       });
+  }
+
+  updateGig(id: number, data: any): Observable<any> {
+    return this.http.put(`http://localhost:3000/employees/${id}`, data);
+  }
+
+  deleteGig(id: string): Observable<any> {
+    return this.http.delete(`http://localhost:3000/employees/${id}`);
   }
 
   public getGigs(): Observable<Array<Gig>> {
@@ -46,8 +51,6 @@ export class GigService {
     let result = this.gigs.filter(g => g.description.includes(gigName));
     return of(this.gigs);
   }
-
-
 
 
 

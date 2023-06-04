@@ -1,5 +1,5 @@
-import { GigService } from './../../services/gig.service';
-import { CategoryService } from './../../services/category.service';
+import { GigService } from '../../../../services/gig.service';
+import { CategoryService } from '../../../../services/category.service';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Gig } from 'src/app/model/gig.model';

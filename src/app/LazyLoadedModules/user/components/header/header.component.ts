@@ -1,10 +1,10 @@
 import { Component, HostListener, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from '../login/login.component';
-import { SnackBarService } from '../../services/snack-bar.service';
+import { LoginComponent } from '../../../../components/login/login.component';
+import { SnackBarService } from '../../../../services/snack-bar.service';
 import { Observable } from 'rxjs';
-import { MultiformsComponent } from '../multiforms/multiforms.component';
+import { MultiformsComponent } from '../../../../components/multiforms/multiforms.component';
 import { LoginService } from 'src/app/services/login.service';
 @Component({
   selector: 'app-header',

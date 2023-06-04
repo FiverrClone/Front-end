@@ -1,5 +1,5 @@
 .page__content {
-    min-height: calc(100vh - 178px);
+    min-height: auto;
     border-radius: 8px;
     color: black;
     background-color: whitesmoke;
@@ -13,6 +13,8 @@
 }
 
 .gig-card {
+    width: 350px;
+    height: 400px;
     display: flex;
     flex-direction: column;
     justify-content: center;

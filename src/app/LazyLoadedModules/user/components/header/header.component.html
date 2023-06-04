@@ -73,12 +73,12 @@
 <p class="bar" style="padding-bottom: 128px;">
   <mat-toolbar class="custom-toolbar fixed-toolbar">
     <mat-toolbar-row class="justify-content-between" [ngStyle]="navbg">
-      <a routerLink="/" class="logo">ANGULAR</a>
+      <a routerLinkActive="active" routerLink="/" class="logo">ANGULAR</a>
 
       <span class="example-spacer">
         <nav style="display: flex;">
-          <a class="nav-link" href="/home">HOME</a>
-          <a class="nav-link" href="/profile">PROFILE</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/home">HOME</a>
+          <a class="nav-link" routerLinkActive="active" routerLink="/profile">PROFILE</a>
         </nav>
       </span>
       

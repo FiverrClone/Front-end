@@ -1,0 +1,146 @@
+<div class="container-fluid page">
+  <div class="head d-flex page__box p-3 mt-2">
+    <h1>Profile</h1>
+  </div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="container-fluid g-0 p-2">
+      <div class="row g-0">
+        <div class="col-md-2 d-flex justify-content-center align-items-center">
+          <img src="../../../../../assets/mobil.jpeg" alt="Profile Image" class="profile">
+        </div>
+        <div class="col ps-2">
+          <span class="name">{{user.firstName | titlecase}} {{user.lastName | titlecase}}mohammed</span>
+          <div class="row g-0 mt-3">
+            <div class="col-md">
+              <table class="table table-hover mx-auto">
+                <thead class="text-center fs-5 fst-italic text-secondary">
+                  <tr>
+                    <td colspan="2">Personal Details</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>First Name</td>
+                    <td>{{user.firstName}}mohammed</td>
+                  </tr>
+                  <tr>
+                    <td>Last Name</td>
+                    <td>{{user.lastName}}daaouan</td>
+                  </tr>
+                  <tr>
+                    <td>Birthdate</td>
+                    <td>{{user.birthday}}30/07/2001</td>
+                  </tr>
+                  <tr>
+                    <td>Gender</td>
+                    <td>{{user.gender}}male</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col">
+              <table class="table table-hover mx-auto">
+                <thead class="text-center fs-5 fst-italic text-secondary">
+                  <tr>
+                    <td colspan="2">Account Details</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Email</td>
+                    <td>{{user.email | titlecase}}med@gmail.com</td>
+                  </tr>
+                  <tr>
+                    <td>Password</td>
+                    <td>{{user.password}}123456789</td>
+                  </tr>
+                  <tr>
+                    <td>Account type</td>
+                    <td>{{user.role}}costomer account</td>
+                  </tr>
+                  <tr>
+                    <td>Experience</td>
+                    <td>4 years</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="btn-group col-md-3 p-2 " role="group">
+            <button type="button" class="btn btn-outline-success" (click)="editUserClicked(user)"><b> Edit</b></button>
+            <button type="button" class="btn btn-outline-danger" (click)="deleteUserClicked(user.id)"><b>Delete</b></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid page">
+  <div class="head d-flex page__box p-3 mt-2">
+    <h1>Last Orders</h1>
+  </div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="container-fluid g-0 p-2">
+      <div class="col-md-7">
+        <div class="card border-0 shadow-sm" style="border-radius: 10px;">
+
+          <div class="card-header bg-transparent border-0 mt-2">
+            <div class="d-flex justify-content-between">
+              <h5>New Orders</h5>
+              <a class="btn btn-primary" (click)="showOrders()" style="font-size: 0.72rem;">View All</a>
+            </div>
+          </div>
+          <div class="card-body">
+
+            <table class="table table-borderless">
+              <thead>
+                <tr>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">City</th>
+                  <th scope="col">Adrress</th>
+                </tr>
+              </thead>
+
+              <tbody style="font-size: 0.813rem;">
+                <tr *ngFor="let newcustomer of newcustomers">
+                  <td class="col-2 text-truncate" style="max-width: 80px;">{{ newcustomer.name }}</td>
+                  <td class="col-2 text-truncate" style="max-width: 80px;">{{ newcustomer.email }}</td>
+                  <td class="col-2">{{ newcustomer.telephone }}</td>
+                  <td class="col-2">{{ newcustomer.pays }}</td>
+                  <td class="col-2">{{ newcustomer.ville }}</td>
+                  <td class="col-2 text-truncate" style="max-width: 80px;">{{ newcustomer.adresse }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid page">
+  <div class="head d-flex page__box p-3 mt-2">
+    <h1>Dashboard</h1>
+    <div class="d-flex flex-row-reverse">
+      <button type="button" class="btn btn-outline-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        (click)="AddGigClicked()"><b> Add gig</b></button>
+    </div>
+  </div>
+  <div class="page__content shadow p-3 position-relative">
+    <div class="container-fluid g-0 p-2">
+      <div class="gig-container">
+        <button *ngFor="let gig of gigs" (click)="editGigClicked(gig)" routerLink="/gig-details/{{gig.id}}">
+          <app-gig
+            class="gig-card transition-transform transform hover:scale-105 cursor-pointer duration-300 ease-in-out"
+            [gigs]="gig">
+          </app-gig>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

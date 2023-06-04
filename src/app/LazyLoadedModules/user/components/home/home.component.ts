@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { GET_GIGS } from 'src/app/graphql.operations';
-import { Gig } from 'src/app/model/gig.model';
-import { GigComponent } from '../gig/gig.component';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
@@ -29,11 +27,9 @@ export class HomeComponent implements OnInit {
       });
   }
 
-  showGig(gig: any){
+  //showGig(gig: any){
     //this.router.navigate(['/gig-details'],{queryParams:{id:this.gigs.}});
-
-  }
-
+  //}
   // gigs: Gig[] = [
   //   {
   //     id:"1",

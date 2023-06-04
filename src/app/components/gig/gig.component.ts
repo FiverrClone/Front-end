@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HomeComponent } from '../home/home.component';
+import { HomeComponent } from '../../LazyLoadedModules/user/components/home/home.component';
 import { Gig } from 'src/app/model/gig.model';
 
 @Component({

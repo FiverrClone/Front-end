@@ -1,0 +1,93 @@
+<div class="editProfile">
+    <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+            <h1><b>Profile Information</b></h1>
+        </h5>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="EditProfileForm" (ngSubmit)="onFormSubmit()">
+
+            <!-- FIRST AND LAST NAME -->
+            <div class="row">
+                <div class="col">
+                    <mat-label><b>First Name</b></mat-label>
+                    <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+                </div>
+                <div class="col">
+                    <mat-label><b>Last Name</b></mat-label>
+                    <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+                </div>
+            </div>
+            <!-- PERSONAL INFORMATION -->
+            <div class="row mt-4">
+                <div class="col form-heading">
+                    <h6 class="text-secondary fst-italic"><b>Personal Information</b></h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <mat-label><b>Email</b></mat-label>
+                    <input type="email" class="form-control" placeholder="Ex. test@gmail.com" formControlName="email">
+                </div>
+                <div class="col">
+                    <mat-label><b>Password</b></mat-label>
+                    <input type="text" class="form-control" placeholder="########" formControlName="password">
+                </div>
+            </div>
+
+            <div class="row pt-3">
+                <div class="col">
+                    <mat-label><b>Date of birth</b></mat-label>
+                    <input class="form-control" placeholder="MM/DD/YYYY" [matDatepicker]="picker" formControlName="dob">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </div>
+                <div class="col pt-3">
+                    <mat-radio-group aria-label="Select an option" formControlName="gender">
+                        <mat-label><b>Gender</b></mat-label>
+                        <mat-radio-button value="male">Male</mat-radio-button>
+                        <mat-radio-button value="female">Female</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col">
+                    <label for="profile" class="form-label"><b>Profile Image</b></label>
+                    <input type="file" class="form-control" id="profile" #fileInput>
+                </div>
+            </div>
+
+            <!-- JOB INFORMATION -->
+            <div class="row mt-4">
+                <div class="col form-heading">
+                    <h6 class="text-secondary fst-italic"><b>Account Information</b></h6>
+                </div>
+            </div>
+
+            <div class="row">
+                <mat-label><b>Account Type</b></mat-label>
+                <mat-chip-listbox aria-label="Fish selection" formControlName="role">
+                    <mat-chip-option value="CUSTOMER">Simple account</mat-chip-option>
+                    <mat-chip-option value="FREELANCER">Freelancer account</mat-chip-option>
+                </mat-chip-listbox>
+            </div>
+
+            <div class="row mt-3">
+                <div class="col">
+                    <mat-label><b>Experience</b></mat-label>
+                    <input type="number" class="form-control" placeholder="Job Experience (yrs)" formControlName="experience">
+                </div>
+                <div class="col">
+                    <mat-label><b>Salary</b></mat-label>
+                    <input type="number" class="form-control" placeholder="Salary ($)" formControlName="package">
+                </div>
+            </div>
+
+            <div class="action mt-2">
+                <button type="submit" class="btn btn-success btn-block" >Update</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -72,15 +72,15 @@ query ExampleQuery($gigId: ID!) {
 `;
 
 const ADDGIG=gql`
-mutation CreateGig($price: String!, $category: String!, $description: String!, $title: String!) {
-  createGig(price: $price, category: $category, description: $description, title: $title) {
+mutation CreateGig($input: CreateGigInput) {
+  createGig(input: $input) {
+    id
+    title
+    description
+    price
+    image
     category
     createdAt
-    description
-    id
-    image
-    price
-    title
     updatedAt
   }
 }
