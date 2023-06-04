@@ -35,8 +35,8 @@ export class LoginComponent implements OnInit{
     })
   }
   ngOnInit(): void {
-   // this._login.start(); 
   }
+
 
   OnFormLogin() { 
      let email = this.LoginForm.value.email;
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit{
          this.sendData = false;
        }
      })
-           
+    
   }
 
   openMultiforms() {

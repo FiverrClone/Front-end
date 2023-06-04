@@ -17,16 +17,22 @@ export function createApollo(httpLink: HttpLink) {
   const auth = setContext((operation, context) => {
     const token = localStorage.getItem('token');
  
-    if (token === null) {
-      return {};
-    } else {
-      return {
+    if (token) { 
+       
+    return {
         headers: {
           Authorization: `Bearer ${token}`,
           "x-apollo-operation-name":"true"
         },
       };
     }
+    return{
+      headers: {
+        "x-apollo-operation-name": "true"
+      }
+    }
+      
+    
   });
  
   const link = ApolloLink.from([basic, auth, httpLink.create({ uri })]);

@@ -6,12 +6,15 @@ import { SnackBarService } from '../../../../services/snack-bar.service';
 import { Observable } from 'rxjs';
 import { MultiformsComponent } from '../../../../components/multiforms/multiforms.component';
 import { LoginService } from 'src/app/services/login.service';
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  user: any;
 
   constructor(
     private _SigneUp: MatDialog,
@@ -21,7 +24,7 @@ export class HeaderComponent {
     private _router: Router
   ) { }
 
-  
+
 
   openmultiforms() {
     this._SigneUp.open(MultiformsComponent, { width: '500px', disableClose: false });
@@ -31,15 +34,21 @@ export class HeaderComponent {
     this._Login.open(LoginComponent, { width: '500px', disableClose: false });
   }
 
-  logout(){
-    this.login.updateStateSession(false);
-    localStorage.removeItem('token');
-    localStorage.setItem('token', "7410");
-    const currentRouter = this._router.url;
-    if (currentRouter !== '/register' && currentRouter !== '/users') {
-      this._router.navigate(['/firstpage']);
+  userInfo() {
+    if(localStorage.getItem("token")){
+      return true;
+    }
+    else{
+      return false;
     }
   }
+
+  logout() {
+    this.login.logout();
+    console.log("logout");
+  }
+
+
 
   navbg: any;
   navbg2: any;
@@ -58,14 +67,8 @@ export class HeaderComponent {
     } else {
       this.navbg = {}
       this.navbg2 = {}
-    } 
+    }
   }
-
-
-  /*@Output() toggleSidebarForMe: EventEmitter<any> = new EventEmitter();
-  toggleSidebar() {
-    this.toggleSidebarForMe.emit();
-  }*/
 
 
 }
