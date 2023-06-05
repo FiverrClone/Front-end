@@ -24,12 +24,12 @@ export class OrderService {
   public setClient(client: AppUser) {
     this.order.client = client;
   }
-  public loadProductsFromCaddy() {
-    this.order.gigs = [];
-    for (let key in this._gig.getGigById(1)) {
-      this.order.gigs.push();
-    }
-  }
+  // public loadProductsFromCaddy() {
+  //   this.order.gigs = [];
+  //   for (let key in this._gig.getGigById(1)) {
+  //     this.order.gigs.push();
+  //   }
+  // }
   public getTotal(): number {
     let total: number = 0;
     this.order.gigs.forEach(p => {

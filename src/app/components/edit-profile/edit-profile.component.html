@@ -11,11 +11,11 @@
             <div class="row">
                 <div class="col">
                     <mat-label><b>First Name</b></mat-label>
-                    <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+                    <input type="text" class="form-control" placeholder="First Name" formControlName="firstname">
                 </div>
                 <div class="col">
                     <mat-label><b>Last Name</b></mat-label>
-                    <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+                    <input type="text" class="form-control" placeholder="Last Name" formControlName="lastname">
                 </div>
             </div>
             <!-- PERSONAL INFORMATION -->
@@ -39,7 +39,7 @@
             <div class="row pt-3">
                 <div class="col">
                     <mat-label><b>Date of birth</b></mat-label>
-                    <input class="form-control" placeholder="MM/DD/YYYY" [matDatepicker]="picker" formControlName="dob">
+                    <input class="form-control" placeholder="MM/DD/YYYY" [matDatepicker]="picker" formControlName="birthday">
                     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </div>
@@ -73,7 +73,7 @@
                     <mat-chip-option value="FREELANCER">Freelancer account</mat-chip-option>
                 </mat-chip-listbox>
             </div>
-
+<!-- 
             <div class="row mt-3">
                 <div class="col">
                     <mat-label><b>Experience</b></mat-label>
@@ -83,7 +83,7 @@
                     <mat-label><b>Salary</b></mat-label>
                     <input type="number" class="form-control" placeholder="Salary ($)" formControlName="package">
                 </div>
-            </div>
+            </div> -->
 
             <div class="action mt-2">
                 <button type="submit" class="btn btn-success btn-block" >Update</button>

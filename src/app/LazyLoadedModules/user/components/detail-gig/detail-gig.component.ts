@@ -28,7 +28,7 @@ export class DetailGigComponent implements OnInit{
     ){}
 
   ngOnInit(): void {
-
+    
       this.gigId=this.Activeroute.snapshot.paramMap.get('gigId');
       console.log(this.gigId);
       this.loadGigDetails(this.gigId);

@@ -22,14 +22,18 @@
         <ul class="user-list">
           <li *ngIf="userInfo()">
             <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
-              <a>logout</a>
+              <a>Settings</a>
             </button>
             <mat-menu #menu="matMenu">
               <button mat-menu-item (click)="logout()">
                 <mat-icon>exit_to_app</mat-icon>
                 Logout
               </button>
-              <a class="nav-link" routerLinkActive="active" routerLink="/profile">PROFILE</a>
+              <button mat-menu-item routerLink="/profile">
+                <mat-icon>account_circle</mat-icon>
+                Profile
+              </button>
+              <!-- <a class="nav-link" routerLinkActive="active" routerLink="/profile">PROFILE</a> -->
             </mat-menu>
           </li>
         </ul>

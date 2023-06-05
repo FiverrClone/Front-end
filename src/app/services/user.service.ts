@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AppUser } from '../model/user.model';
-import { REGISTRE } from '../graphql.operations'
+import { DELETE_USER, REGISTRE, UPDATE_USER } from '../graphql.operations'
 import { Apollo } from 'apollo-angular';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  user!: Observable<any>;
 
 
   // constructor(private _http:HttpClient) {}
@@ -24,15 +25,26 @@ export class UserService {
       });
   }
 
-  deletProfile(id: string) {
-    return this.http.delete(+ '/' + id);
+
+  updateUser(input: any): Observable<any>  {
+    return this.apollo
+      .mutate({
+        mutation: UPDATE_USER,
+        variables: {
+          input
+        }
+      });
   }
-  editProfile(id: number, data: any): Observable<any> {
-    return this.http.put(`http://localhost:3000/employees/${id}`, data);
+  deleteUser(): Observable<any>  {
+    return this.apollo
+      .mutate({
+        mutation: DELETE_USER,
+        variables: {
+        }
+      });
   }
 
-  getEmployees() {
-    return this.http.get<AppUser[]>;
-  }
+
+
 
 }

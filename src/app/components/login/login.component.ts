@@ -48,13 +48,13 @@ export class LoginComponent implements OnInit{
          localStorage.setItem('token', result.data.loginUser.token);
          localStorage.setItem('authUser', JSON.stringify(result.data.loginUser));
          console.log('login correct');
-         this._login.updateStateSession(true);
+        //  this._login.updateStateSession(true);
          this._router.navigate(['/home']);
          this._dialogRef.close();      
        } else {
          this.error = true;
          this.show = true;
-         this._login.updateStateSession(false);
+        //  this._login.updateStateSession(false);
          localStorage.removeItem('token');
          console.log('login incorrecto');
          this.sendData = false;

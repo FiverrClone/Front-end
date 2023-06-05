@@ -11,10 +11,10 @@ import {  Router } from '@angular/router';
 export class LoginService implements OnInit{
 
   
-  public accessVar = new Subject<boolean>();
-  public accessVar$ = this.accessVar.asObservable();
-  public userVar = new Subject<any>();
-  public userVar$ = this.userVar.asObservable();
+  // public accessVar = new Subject<boolean>();
+  // public accessVar$ = this.accessVar.asObservable();
+  // public userVar = new Subject<any>();
+  // public userVar$ = this.userVar.asObservable();
   loginResult: any;
   logedUser:any;
 
@@ -22,13 +22,13 @@ export class LoginService implements OnInit{
   
   ngOnInit(): void {}
 
-  public updateStateSession(newValue: boolean){
-    this.accessVar.next(newValue);
-  }
+  // public updateStateSession(newValue: boolean){
+  //   this.accessVar.next(newValue);
+  // }
 
-  public updateUser(newValue: any) {
-    this.userVar.next(newValue);
-  }
+  // public updateUser(newValue: any) {
+  //   this.userVar.next(newValue);
+  // }
 
   loginUser(loginInput: any): Observable<any>  {
     return this.apollo

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Gig } from 'src/app/model/gig.model';
 import { GigService } from 'src/app/services/gig.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
@@ -22,6 +22,8 @@ export class GigFormComponent implements OnInit {
   editForm = false;
   selectedFile: any;
   category: string[] = ['FrontEnd', 'BackEnd', 'Mobile', 'Programmation',];
+  
+  gigId: any;
 
 
   gig: Gig = {
@@ -43,6 +45,7 @@ export class GigFormComponent implements OnInit {
     private _dialogRef: DialogRef<GigFormComponent>,
     private _router: Router,
     private _snackbar: SnackBarService,
+    private Activeroute: ActivatedRoute,
     @Inject(MAT_DIALOG_DATA) public data: any,
   ) {
     this.GigForm = this._fb.group({
@@ -56,6 +59,7 @@ export class GigFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.gigId=this.Activeroute.snapshot.paramMap.get('gigId')
     this.GigForm.patchValue(this.data);
   }
 
@@ -84,11 +88,12 @@ export class GigFormComponent implements OnInit {
           this._gig.getGigs();
         })
       }
+      
     }
   }
 
-  deleteGig(id:string){
-    this._gig.deleteGig(id).subscribe({
+  deleteGig(){
+    this._gig.deleteGig(this.gigId).subscribe({
       next: (res) => {
         this._snackbar.openSnackBar('Gig deleted!', 'done');
         this._gig.getGigs();

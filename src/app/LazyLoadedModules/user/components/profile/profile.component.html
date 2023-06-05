@@ -5,11 +5,11 @@
   <div class="page__content shadow p-3 position-relative">
     <div class="container-fluid g-0 p-2">
       <div class="row g-0">
-        <div class="col-md-2 d-flex justify-content-center align-items-center">
+        <!-- <div class="col-md-2 d-flex justify-content-center align-items-center">
           <img src="../../../../../assets/mobil.jpeg" alt="Profile Image" class="profile">
-        </div>
+        </div> -->
         <div class="col ps-2">
-          <span class="name">{{user.firstName | titlecase}} {{user.lastName | titlecase}}mohammed</span>
+          <span class="name ">{{user.username}}</span>
           <div class="row g-0 mt-3">
             <div class="col-md">
               <table class="table table-hover mx-auto">
@@ -21,19 +21,19 @@
                 <tbody>
                   <tr>
                     <td>First Name</td>
-                    <td>{{user.firstName}}mohammed</td>
+                    <td>{{user.firstname}}</td>
                   </tr>
                   <tr>
                     <td>Last Name</td>
-                    <td>{{user.lastName}}daaouan</td>
+                    <td>{{user.lastname}}</td>
                   </tr>
                   <tr>
                     <td>Birthdate</td>
-                    <td>{{user.birthday}}30/07/2001</td>
+                    <td>{{user.birthday}}</td>
                   </tr>
                   <tr>
                     <td>Gender</td>
-                    <td>{{user.gender}}male</td>
+                    <td>{{user.gender}}</td>
                   </tr>
                 </tbody>
               </table>
@@ -48,15 +48,15 @@
                 <tbody>
                   <tr>
                     <td>Email</td>
-                    <td>{{user.email | titlecase}}med@gmail.com</td>
+                    <td>{{user.email | titlecase}}</td>
                   </tr>
                   <tr>
                     <td>Password</td>
-                    <td>{{user.password}}123456789</td>
+                    <td>{{user.password}}</td>
                   </tr>
                   <tr>
                     <td>Account type</td>
-                    <td>{{user.role}}costomer account</td>
+                    <td>{{user.role}}</td>
                   </tr>
                   <tr>
                     <td>Experience</td>
@@ -68,7 +68,7 @@
           </div>
           <div class="btn-group col-md-3 p-2 " role="group">
             <button type="button" class="btn btn-outline-success" (click)="editUserClicked(user)"><b> Edit</b></button>
-            <button type="button" class="btn btn-outline-danger" (click)="deleteUserClicked(user.id)"><b>Delete</b></button>
+            <button type="button" class="btn btn-outline-danger" (click)="deleteUserClicked()"><b>Delete</b></button>
           </div>
         </div>
       </div>
