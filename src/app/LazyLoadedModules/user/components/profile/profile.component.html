@@ -96,23 +96,23 @@
             <table class="table table-borderless">
               <thead>
                 <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Phone</th>
-                  <th scope="col">Country</th>
-                  <th scope="col">City</th>
-                  <th scope="col">Adrress</th>
+                  <th scope="col">tile</th>
+                  <th scope="col">Customer</th>
+                  <th scope="col">Freelancer</th>
+                  <th scope="col">price</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">created at</th>
                 </tr>
               </thead>
 
               <tbody style="font-size: 0.813rem;">
-                <tr *ngFor="let newcustomer of newcustomers">
-                  <td class="col-2 text-truncate" style="max-width: 80px;">{{ newcustomer.name }}</td>
-                  <td class="col-2 text-truncate" style="max-width: 80px;">{{ newcustomer.email }}</td>
-                  <td class="col-2">{{ newcustomer.telephone }}</td>
-                  <td class="col-2">{{ newcustomer.pays }}</td>
-                  <td class="col-2">{{ newcustomer.ville }}</td>
-                  <td class="col-2 text-truncate" style="max-width: 80px;">{{ newcustomer.adresse }}</td>
+                <tr *ngFor="let order of orders">
+                  <td class="col-2 text-truncate" style="max-width: 80px;">{{ order.title }}</td>
+                  <td class="col-2 text-truncate" style="max-width: 80px;">{{ order.customer.username }}</td>
+                  <td class="col-2">{{ order.freelancer.username }}</td>
+                  <td class="col-2">{{ order.price}}</td>
+                  <td class="col-2">{{ order.status }}</td>
+                  <td class="col-2 text-truncate" style="max-width: 80px;">{{ order.createdAt }}</td>
                 </tr>
               </tbody>
             </table>

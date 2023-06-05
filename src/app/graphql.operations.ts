@@ -93,6 +93,25 @@ mutation Mutation($gigId: String!) {
   }
 }
 `;
+const GET_ORDERS=gql`
+query Query {
+  orders {
+    id
+    title
+    customer {
+      username
+    }
+    freelancer {
+      username
+    }
+    price
+    status
+    createdAt
+    updatedAt
+  }
+}
+`;
 
 
-export { GET_GIGS, REGISTRE,LOGIN , GIG, ADDGIG,ORDER};
+
+export { GET_GIGS, REGISTRE,LOGIN , GIG, ADDGIG,ORDER,GET_ORDERS};

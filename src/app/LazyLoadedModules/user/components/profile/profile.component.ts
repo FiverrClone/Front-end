@@ -5,7 +5,7 @@ import { AppUser } from 'src/app/model/user.model';
 import { GigFormComponent } from '../../../../components/gig-form/gig-form.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EditProfileComponent } from 'src/app/components/edit-profile/edit-profile.component';
-import { GET_GIGS } from 'src/app/graphql.operations';
+import { GET_GIGS, GET_ORDERS } from 'src/app/graphql.operations';
 import { DialogRef } from '@angular/cdk/dialog';
 import { UserService } from 'src/app/services/user.service';
 import { SnackBarService } from 'src/app/services/snack-bar.service';
@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
   @Output() onEditUser = new EventEmitter<number>();
 
   gigs: any[] = [];
+  orders: any[] = [];
   loading = true;
   error: any;
   customersNumber: any;
@@ -62,7 +63,18 @@ export class ProfileComponent implements OnInit {
       this.gigs = result.data?.gigs;
       this.loading = result.loading;
       this.error = result.error;
-    });  }
+    });  
+
+    this.apollo.watchQuery({
+      query:GET_ORDERS
+    })
+    .valueChanges.subscribe((result: any) => {
+      console.log(result.data);
+      this.orders = result.data?.orders;
+      this.loading = result.loading;
+      this.error = result.error;
+    });
+  }
 
   deleteUserClicked(id:string) {
     this._user.deletProfile(id).subscribe({
