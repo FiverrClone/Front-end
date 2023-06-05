@@ -85,6 +85,14 @@ mutation CreateGig($input: CreateGigInput) {
   }
 }
 `;
+const ORDER=gql`
+mutation Mutation($gigId: String!) {
+  createOrder(gigId: $gigId) {
+    id
+    url
+  }
+}
+`;
 
 
-export { GET_GIGS, REGISTRE,LOGIN , GIG, ADDGIG};
+export { GET_GIGS, REGISTRE,LOGIN , GIG, ADDGIG,ORDER};

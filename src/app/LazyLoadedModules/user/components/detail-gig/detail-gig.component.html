@@ -1,4 +1,6 @@
-
+<head>
+    <script src="https://js.stripe.com/v3/"></script>
+  </head>
 <div class="container">
 
     <div class="rounded-xl shadow-xl" style="width: 600px; margin-left: 400px;">
@@ -25,7 +27,7 @@
             </div>
         </div>
     </div>
-    <button type="button" class="btn btn-outline-success btn-lg" (click)="payment(1)"><b>Buy Gig</b></button>
+    <button type="button" class="btn btn-outline-success btn-lg" (click)="onCheckout()"><b>Buy Gig</b></button>
 
 
     <!--<div class="col-md-3">

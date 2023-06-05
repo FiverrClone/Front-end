@@ -1,8 +1,10 @@
+import { OrderService } from './../../../../services/order.service';
 import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { GigService } from '../../../../services/gig.service';
 import { GIG } from 'src/app/graphql.operations';
 import { Apollo } from 'apollo-angular';
+import { loadStripe, PaymentIntent, Stripe } from '@stripe/stripe-js';
 
 @Component({
   selector: 'app-detail-gig',
@@ -20,6 +22,7 @@ export class DetailGigComponent implements OnInit{
   constructor( 
     private Activeroute: ActivatedRoute,
     private gigService: GigService,
+    private orderService:OrderService,
     private router:Router,
     private apollo:Apollo,
     ){}
@@ -29,7 +32,7 @@ export class DetailGigComponent implements OnInit{
       this.gigId=this.Activeroute.snapshot.paramMap.get('gigId');
       console.log(this.gigId);
       this.loadGigDetails(this.gigId);
-      this.invokeStripe();
+      // this.invokeStripe();
   }
   
 
@@ -50,32 +53,50 @@ export class DetailGigComponent implements OnInit{
     });
   }
 
+  onCheckout():void{
+    this.orderService.createOrder(this.gigId).subscribe({
 
-  invokeStripe(){
-    if(!document.getElementById('stripe-script')){
-      const script=document.createElement('script');
-      script.id='stripe-script';
-      script.type='text/javascript';
-      script.src='https://checkout.stripe.com/checkout.js';
-      window.document.body.appendChild(script);
-    }
-  }
-  payment(amount:any){
-    const paymentHandler=(<any>window).StripeCheckout.configure({
-      key:'pk_test_51ND77jDcyWArQDWrCCy0YNu8yufjnl8Lc8D5ZJUzFZthzsekGDbqt0mt2BWaXgQQaliGERCuZvNaPtifJnB13Yp200At0PmAnX',
-      locale:'auto',
-      token:function(stripeToken:any){
-        console.log(stripeToken.card);
-        alert('Stripe token generated');
+      next: ({ data }) => {
+        console.log({data:data.createOrder.id});
+        loadStripe('pk_test_51NEsZUCdmLXDAOmq3X1K3VOcTY2oYSzu5PDl9Y5Rfl3ReavtFnyvLmJ6NaCWMubRY5BiuZrGdeoWu97WR6S23vEM00RiPIWzvz').then((stripe) => {
+          stripe?.redirectToCheckout({
+            sessionId: data.createOrder.id
+          });
+        });
       },
-    });
-
-    paymentHandler.open({
-      name:'Mohammed',
-      description:'2 Gig added',
-      amount:amount*100,
-    });
+      error: (error) => {
+        console.log('Error creating order:', error);
+        // Handle error
+      }
+      
+    })
   }
+
+  // invokeStripe(){
+  //   if(!document.getElementById('stripe-script')){
+  //     const script=document.createElement('script');
+  //     script.id='stripe-script';
+  //     script.type='text/javascript';
+  //     script.src='https://checkout.stripe.com/checkout.js';
+  //     window.document.body.appendChild(script);
+  //   }
+  // }
+  // payment(amount:any){
+  //   const paymentHandler=(<any>window).StripeCheckout.configure({
+  //     key:'pk_test_51ND77jDcyWArQDWrCCy0YNu8yufjnl8Lc8D5ZJUzFZthzsekGDbqt0mt2BWaXgQQaliGERCuZvNaPtifJnB13Yp200At0PmAnX',
+  //     locale:'auto',
+  //     token:function(stripeToken:any){
+  //       console.log(stripeToken.card);
+  //       alert('Stripe token generated');
+  //     },
+  //   });
+
+  //   paymentHandler.open({
+  //     name:'Mohammed',
+  //     description:'2 Gig added',
+  //     amount:amount*100,
+  //   });
+  // }
 
 
 }

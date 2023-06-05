@@ -5,6 +5,8 @@ import { GigService } from './gig.service';
 import { Order } from '../model/order.model';
 import { AppUser } from '../model/user.model';
 import { Gig } from '../model/gig.model';
+import { Apollo } from 'apollo-angular';
+import { ORDER } from '../graphql.operations';
 
 
 @Injectable({
@@ -16,6 +18,7 @@ export class OrderService {
   constructor(
     private _gig: GigService,
     private httpClient: HttpClient,
+    private apollo: Apollo,
     ) { }
 
   public setClient(client: AppUser) {
@@ -35,6 +38,16 @@ export class OrderService {
     return total;
   }
 
+  createOrder(gigId: String): Observable<any>  {
+    console.log(gigId)
+    return this.apollo
+      .mutate({
+        mutation: ORDER,
+        variables: {
+          gigId
+        }
+      });
+  }
   submitOrder() {
     return this.httpClient.post(this._gig.host + "/orders", this.order);
   }
